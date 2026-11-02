@@ -1,0 +1,51 @@
+{
+  "title": "Home page layout",
+  "question": "The look is set (shot 1 colors, your Higgsfield loop, your photo lit blue and red). Pick how the home page is arranged. All three fit on one screen, no long scroll.",
+  "options": [
+    {
+      "id": "title-sequence",
+      "kind": "assigned",
+      "label": "Title sequence",
+      "kicker": "THE ROLL",
+      "lineage": "film opening titles",
+      "thesis": "The home page opens like a film title: your name, huge, over the video, then one typed line.",
+      "palette": ["#030306", "#0252AC", "#D31816", "#F6F6F6"],
+      "materials": ["looping particle video", "rim-lit portrait", "glass tabs"],
+      "viewport": "Video full screen, portrait centered behind a giant condensed name, typed line under it, three glass page tabs along the bottom edge.",
+      "risk": "Most cinematic, but the live GitHub panel has to live one step down or on Projects.",
+      "html": ".impeccable/mocks/decision/title-sequence.html",
+      "comp": ".impeccable/mocks/decision/title-sequence.webp"
+    },
+    {
+      "id": "horizon",
+      "kind": "dealt",
+      "label": "Horizon",
+      "kicker": "LAYOUT B",
+      "lineage": "the video's own horizon line",
+      "thesis": "The particle wave becomes the floor: you stand on it, and the page links rest on it.",
+      "palette": ["#030306", "#092659", "#D31816", "#F6F6F6"],
+      "materials": ["particle horizon", "rim-lit portrait", "glass doors"],
+      "viewport": "Headline top left, portrait right of center rising from the wave, three glass doors and a live GitHub strip sitting along the horizon.",
+      "risk": "Ties the layout to this one clip; a new video must keep a horizon in the same spot.",
+      "html": ".impeccable/mocks/decision/horizon.html",
+      "comp": ".impeccable/mocks/decision/horizon.webp"
+    },
+    {
+      "id": "hud-frame",
+      "kind": "dealt",
+      "label": "HUD frame",
+      "kicker": "LAYOUT C",
+      "lineage": "PLENUM-style heads-up display",
+      "thesis": "The screen is a framed instrument view, with live readouts from your GitHub on its edges.",
+      "palette": ["#030306", "#0252AC", "#8994B4", "#D31816"],
+      "materials": ["corner brackets", "mono readouts", "glass nav pill"],
+      "viewport": "Corner-bracket frame, portrait center in front of a giant last name, mono readout columns left and right, glass nav pill top center.",
+      "risk": "Busiest of the three; on phones the readouts collapse to one line.",
+      "html": ".impeccable/mocks/decision/hud-frame.html",
+      "comp": ".impeccable/mocks/decision/hud-frame.webp"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "buildPath": { "value": "code" }
+}

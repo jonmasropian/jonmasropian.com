@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:#030306;color:#F6F6F6;font-family:Geist,sans-serif;position:relative}
+.video{position:absolute;inset:0;background:radial-gradient(45% 40% at 0% 50%,rgba(211,24,22,.25),transparent 70%),radial-gradient(110% 45% at 50% 100%,rgba(2,82,172,.5),transparent 60%),#030306}
+.dots{position:absolute;left:0;right:0;bottom:0;height:34%;background-image:radial-gradient(rgba(170,200,255,.6) 1px,transparent 1.5px);background-size:14px 11px;mask-image:linear-gradient(transparent,#000 50%)}
+.frame{position:absolute;inset:28px;border:1px solid rgba(137,148,180,.14);border-radius:22px}
+.c{position:absolute;width:26px;height:26px;border-color:#8994B4;border-style:solid}
+.tl{left:44px;top:44px;border-width:1px 0 0 1px}.tr{right:44px;top:44px;border-width:1px 1px 0 0}
+.bl{left:44px;bottom:44px;border-width:0 0 1px 1px}.br{right:44px;bottom:44px;border-width:0 1px 1px 0}
+.brand{position:absolute;left:76px;top:62px;font-family:'JetBrains Mono';font-size:14px;letter-spacing:.2em}
+.brand small{display:block;font-size:11px;color:#8994B4;margin-top:8px;letter-spacing:.16em}
+.pill{position:absolute;left:50%;top:56px;transform:translateX(-50%);display:flex;gap:34px;padding:14px 28px;border-radius:14px;background:rgba(9,38,89,.35);border:1px solid rgba(90,140,255,.35);box-shadow:0 0 30px rgba(2,82,172,.35);font-size:14px;color:#cdd6ee}
+.mail{position:absolute;right:76px;top:56px;padding:13px 22px;border-radius:999px;border:1px solid;border-color:#0252AC #D31816 #D31816 #0252AC;font-size:14px}
+.big{position:absolute;left:0;right:0;top:250px;text-align:center;font-family:'Big Shoulders Display';font-weight:800;font-size:300px;line-height:1;color:rgba(137,148,180,.22);letter-spacing:.02em}
+.portrait{position:absolute;left:50%;top:170px;width:440px;height:650px;transform:translateX(-50%);border-radius:48% 48% 0 0;
+ background:radial-gradient(40% 28% at 50% 26%,#1b2233,transparent 70%),radial-gradient(75% 60% at 50% 95%,#0d1220,transparent 72%);
+ box-shadow:inset 28px 0 60px -30px rgba(2,82,172,.95),inset -28px 0 60px -30px rgba(211,24,22,.9);mask-image:linear-gradient(#000 75%,transparent)}
+.hud{position:absolute;top:330px;font-family:'JetBrains Mono';font-size:13px;letter-spacing:.1em;color:#8994B4;line-height:2.3}
+.hud b{color:#F6F6F6;font-weight:400}.l{left:84px}.r{right:84px;text-align:right}
+.hud .k{color:#D31816}
+h1{position:absolute;left:84px;bottom:150px;font-size:44px;font-weight:500;line-height:1.1;width:420px}
+.typed{position:absolute;left:0;right:0;bottom:78px;text-align:center;font-size:22px;font-weight:300;color:#A6A9AF}
+.typed i{display:inline-block;width:10px;height:24px;background:#D31816;vertical-align:-4px;margin-left:4px}
+</style></head><body>
+<div class="video"></div><div class="dots"></div>
+<div class="frame"></div><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+<div class="brand">JON MASROPIAN<small>SOFTWARE ENGINEER · U.S. ARMY VETERAN</small></div>
+<div class="pill"><span>Projects</span><span>Biography</span><span>Cyber Lab</span><span>Contact</span></div>
+<a class="mail">Email me</a>
+<div class="big">MASROPIAN</div>
+<div class="portrait"></div>
+<div class="hud l">ROLE <b>SWE APPRENTICE</b><br>SERVICE <b>22 YRS · 25H</b><br>CERT <b>SECURITY+</b><br>STACK <b>NEXT · NODE · POSTGRES</b></div>
+<div class="hud r"><span class="k">●</span> GITHUB <b>LIVE</b><br>LAST PUSH <b>2H AGO</b><br>REPO <b>PORTFOLIO</b><br>COMMITS / WK <b>14</b></div>
+<p class="typed">I write software. 22 years in Army networks taught me how it breaks.<i></i></p>
+</body></html>

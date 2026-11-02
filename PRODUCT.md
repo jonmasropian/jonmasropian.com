@@ -18,7 +18,7 @@ Personal portfolio for Jon Masropian. Its job is to get him a better software en
 
 ## Positioning
 
-A 22-year U.S. Army veteran (25H Signal Corps network engineer, Drill Sergeant 2016–2019, retired 2026) who moved into software: Security+ → Era Academy full-stack bootcamp → hospital Desktop Support Analyst → Software Engineer apprentice. The edge no other junior SWE can copy: two decades of real network/security operations and leadership behind the code. Security is a side strength, not the headline.
+A 22-year U.S. Army veteran (25H Signal Corps network engineer, Drill Sergeant 2016–2019, retired 2026) who moved into software: Security+ → Era Academy full-stack bootcamp → Desktop Analyst at Memorial Health System of Southwest Oklahoma (May–Aug 2026) → Software Developer Apprentice at ERA Solutions LLC (Sept 2026–present). The edge no other junior SWE can copy: two decades of real network/security operations and leadership behind the code. Security is a side strength, not the headline.
 
 ## Operating Context
 
@@ -32,7 +32,7 @@ A 22-year U.S. Army veteran (25H Signal Corps network engineer, Drill Sergeant 2
 - Public contact: email, contact form, GitHub, LinkedIn. **No phone number** anywhere public.
 - Employers are named: real employer names, titles, and dates for the hospital job and the apprenticeship.
 - Open decisions:
-  - Exact employer names, titles, and dates for the hospital and apprenticeship roles (not yet supplied).
+  - (resolved 2026-11-02: titles, employers and dates come from the resume in inspiration/.)
   - Real GitHub and LinkedIn URLs (current data has bare domains; `github.com/jonmasropian` appears in terminal copy but is unconfirmed).
   - Contact form backend (not decided; the form currently only simulates sending).
   - Whether Skills and About sections stay.
@@ -47,7 +47,7 @@ A 22-year U.S. Army veteran (25H Signal Corps network engineer, Drill Sergeant 2
 ## Evidence on Hand
 
 - Projects: Warriors Blood Coffee (e-commerce platform), this portfolio site. Both lack public repo links today.
-- Certifications: CompTIA Security+, Era Academy Full Stack Software Development, COITB JavaScript Professional Developer, Bachelor's (IT / Cybersecurity) from Central Texas College.
+- Certifications: CompTIA Security+ ce (SY0-701), earned 1/19/2026, valid through 1/19/2029, verifiable at verify.CompTIA.org (code in the PDF); active Secret clearance (OK to show publicly); CoITB certifications (all issued 2026, valid 3 yrs): HTML/CSS Web Designer #6846 (3/7/2026), JavaScript Professional Developer #6920 (4/11/2026), ReactJS Framework Developer #7044 (5/16/2026), MySQL Backend Developer #7123 (6/13/2026), Python Professional Developer #7248 (7/25/2026); Era Academy Full Stack bootcamp completed. Education: Central Texas College coursework only — no degree; never claim one. Tools confirmed: Active Directory (daily), ServiceNow (SNOW) ticketing, NinjaOne monitoring/remote access.
 - Photo: `public/portfolio-picture.png`.
 - Absent, do not fabricate: testimonials, metrics, employer logos, client names, performance numbers.
 - `public/images/*` (blog, pricing, clients, team, etc.) are template leftovers, not evidence.

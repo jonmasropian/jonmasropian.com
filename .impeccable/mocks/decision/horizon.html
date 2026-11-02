@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;background:#030306;color:#F6F6F6;font-family:Geist,sans-serif;position:relative}
+.sky{position:absolute;inset:0;background:radial-gradient(50% 45% at 0% 50%,rgba(211,24,22,.3),transparent 70%),linear-gradient(#030306 30%,#071736 58%,#030306 59%)}
+.horizon{position:absolute;left:0;right:0;top:530px;height:3px;background:linear-gradient(90deg,rgba(211,24,22,.7),#5aa0ff 40%,#9cc4ff 70%,rgba(2,82,172,.4));box-shadow:0 0 40px 8px rgba(2,82,172,.6)}
+.field{position:absolute;left:0;right:0;top:533px;bottom:0;background-image:radial-gradient(rgba(170,200,255,.75) 1px,transparent 1.6px);background-size:16px 12px;mask-image:linear-gradient(#000,transparent 95%)}
+.rain{position:absolute;inset:0 0 370px;background:repeating-linear-gradient(90deg,transparent 0 179px,rgba(140,180,255,.08) 179px 180px)}
+nav{position:absolute;top:36px;left:64px;right:64px;display:flex;gap:44px;align-items:center;font-size:15px;color:#A6A9AF}
+nav b{color:#F6F6F6;font-family:'JetBrains Mono';font-weight:400;letter-spacing:.14em;font-size:13px;margin-right:auto}
+.portrait{position:absolute;left:820px;top:120px;width:420px;height:412px;border-radius:50% 50% 0 0;
+ background:radial-gradient(40% 32% at 50% 30%,#1b2233,transparent 70%),radial-gradient(80% 60% at 50% 100%,#0d1220,transparent 75%);
+ box-shadow:inset 30px 0 60px -30px rgba(2,82,172,.95),inset -30px 0 60px -30px rgba(211,24,22,.9)}
+h1{position:absolute;left:64px;top:150px;font-family:'Big Shoulders Display';font-weight:800;font-size:178px;line-height:.84;text-transform:uppercase}
+h1 span{color:#8994B4;display:block}
+.typed{position:absolute;left:68px;top:470px;font-size:22px;font-weight:300;color:#A6A9AF}
+.typed i{display:inline-block;width:10px;height:24px;background:#D31816;vertical-align:-4px;margin-left:4px}
+.doors{position:absolute;left:64px;right:64px;top:600px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.door{height:150px;padding:22px;border-radius:18px;background:linear-gradient(160deg,rgba(9,38,89,.45),rgba(3,3,6,.3));border:1px solid rgba(137,148,180,.28);backdrop-filter:blur(12px);transform:perspective(900px) rotateX(8deg)}
+.door small{font-family:'JetBrains Mono';font-size:12px;color:#8994B4;letter-spacing:.12em}
+.door div{font-size:24px;font-weight:500;margin-top:40px}
+.gh{position:absolute;left:64px;right:64px;bottom:34px;display:flex;gap:36px;font-family:'JetBrains Mono';font-size:13px;color:#8994B4;letter-spacing:.06em}
+.gh b{color:#F6F6F6;font-weight:400}.gh em{color:#4f8fff;font-style:normal}
+</style></head><body>
+<div class="sky"></div><div class="rain"></div><div class="horizon"></div><div class="field"></div>
+<nav><b>JON MASROPIAN</b><span>Projects</span><span>Biography</span><span>Cyber Lab</span><span>Contact</span></nav>
+<div class="portrait"></div>
+<h1>Jon<span>Masropian</span></h1>
+<p class="typed">Software engineer. 22 years keeping Army networks up.<i></i></p>
+<div class="doors">
+ <div class="door"><small>01 / PROJECTS</small><div>What I've built</div></div>
+ <div class="door"><small>02 / BIOGRAPHY</small><div>Army to software</div></div>
+ <div class="door"><small>03 / CYBER LAB</small><div>Postgres terminal</div></div>
+ <div class="door"><small>04 / CONTACT</small><div>Send a message</div></div>
+</div>
+<div class="gh"><span><em>●</em> LIVE FROM GITHUB</span><span>LAST PUSH <b>2h ago</b></span><span>REPO <b>portfolio</b></span><span>THIS WEEK <b>14 commits</b></span></div>
+</body></html>
