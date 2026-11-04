@@ -1,6 +1,10 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { links } from '@/data/site';
 
 export default function SiteFooter() {
+  if (usePathname() === '/') return null; // home carries these links in its GitHub strip
   const item = 'transition-colors hover:text-ink';
   return (
     <footer className="relative mx-auto flex w-full max-w-[1440px] flex-wrap items-center gap-x-6 gap-y-2 px-5 py-6 font-mono text-xs tracking-[0.06em] text-dim md:px-16">

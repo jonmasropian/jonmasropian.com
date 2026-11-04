@@ -24,7 +24,7 @@ export default function SiteNav() {
   }, [open]);
 
   return (
-    <header className="relative z-40">
+    <header className="absolute inset-x-0 top-0 z-40">
       <nav
         aria-label="Main"
         className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-5 md:px-16 md:py-8"

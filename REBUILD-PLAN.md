@@ -1,6 +1,6 @@
 # Portfolio rebuild plan
 
-**Building in 6 approved stages (started 2026-11-04).** Stage 1 done, waiting on Jon's approval; next is Stage 2 (Home).
+**Building in 6 approved stages (started 2026-11-04).** Stages 1–2 approved and committed; next is Stage 3 (Projects). Open: Jon to pick border-light door edge + "under the hood" API docs (Stage 5); live SQL sandbox suggested as post-launch flagship.
 
 ## Where we are
 
@@ -11,8 +11,8 @@
 | Background video | done: `inspiration/higgsfield/loop-1793637133938.mp4` (Jon likes it) |
 | Home layout | done: **B. Horizon, with A's big name** |
 | Resume, certs, career facts | done (in `PRODUCT.md`) |
-| Stage 1 Foundation: old code/deps removed, tokens, fonts, nav + 5 pages, video loop (`public/video/`) | done 2026-11-04, awaiting approval |
-| Stage 2 Home (Horizon) | next |
+| Stage 1 Foundation: old code/deps removed, tokens, fonts, nav + 5 pages, video loop (`public/video/`) | approved + committed 2026-11-04 (5482b10) |
+| Stage 2 Home (Horizon): cut-out portrait (`public/portrait-cutout.webp`, BiRefNet matte of `portfolio-picture.png`), typed line, 4 tilt doors, live GitHub strip (`src/lib/github.ts`, optional `GITHUB_TOKEN`) | approved + committed 2026-11-04 |
 | Stage 3 Projects · 4 Biography + certs · 5 Cyber Lab + Resend + GitHub API · 6 Finish review, DESIGN.md, Vercel preview | later |
 
 ## Decisions (Jon, 2026-11-02)

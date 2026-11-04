@@ -25,7 +25,8 @@ export default function Backdrop() {
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <video
         ref={video}
-        className="h-full w-full object-cover object-bottom"
+        // The clip's wave sits at 50% of the frame; 118% height, top-anchored, puts it at 59% of the viewport.
+        className="h-[118%] w-full object-cover"
         poster="/video/horizon-poster.webp"
         muted
         loop

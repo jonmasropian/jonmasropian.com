@@ -86,6 +86,64 @@
   }
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Glass door on the horizon. Tilt + sheen are driven by --rx/--ry/--mx/--my from Doors.tsx. */
+@utility door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 7.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--color-hairline);
+  background: linear-gradient(160deg, rgb(9 38 89 / 0.72), rgb(3 3 6 / 0.82));
+  box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9);
+  /* perspective must live on the door itself; on the <ul> it only reaches the <li>, not this link */
+  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition:
+    transform 500ms var(--ease-out-expo),
+    border-color 300ms var(--ease-out-expo);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 0%),
+      rgb(90 160 255 / 0.16),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 300ms var(--ease-out-expo);
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: rgb(137 148 180 / 0.5);
+    transition-duration: 150ms, 300ms; /* follow the pointer quickly, settle slowly on leave */
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+
+  @media (width >= 64rem) {
+    height: clamp(7rem, 16dvh, 9.5rem);
+    padding: 1.4rem;
+    border-radius: 18px;
+    /* blur only on desktop: over a playing video it is too costly for phones */
+    background: linear-gradient(160deg, rgb(9 38 89 / 0.45), rgb(3 3 6 / 0.3));
+    backdrop-filter: blur(12px);
+  }
+}
+
 @layer base {
   @media (prefers-reduced-motion: reduce) {
     *,
