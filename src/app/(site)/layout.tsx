@@ -1,34 +1,52 @@
-import '@/styles/animate.css';
 import '@/styles/tailwind.css';
 
-import Navigation from '@/components/portfolio/Navigation';
-import CursorGlow from '@/components/portfolio/Effects/CursorGlow';
-import VoidBackground from '@/components/portfolio/Effects/VoidBackground';
-import AnomalyOverlay from '@/components/portfolio/Effects/AnomalyOverlay';
-import AudioUnlock from '@/components/portfolio/Effects/AudioUnlock';
-import BootSequenceWrapper from '@/components/portfolio/BootSequence/BootSequenceWrapper';
-import { JetBrains_Mono, Inter } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Big_Shoulders, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
+import Backdrop from '@/components/Backdrop';
+import SiteNav from '@/components/SiteNav';
+import SiteFooter from '@/components/SiteFooter';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
+const display = Big_Shoulders({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  adjustFontFallback: false, // next has no metrics for Big Shoulders; the stack in tailwind.css covers the swap
+  variable: '--font-big-shoulders',
+  display: 'swap',
+});
+const sans = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-plex-sans', display: 'swap' });
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL || 'https://jonmasropian.com'),
+  title: { default: 'Jon Masropian — Software Developer', template: '%s — Jon Masropian' },
+  description:
+    'Jon Masropian: 22-year U.S. Army veteran, now a Software Developer Apprentice at ERA Solutions. Projects, background, and contact.',
+  openGraph: { type: 'website', title: 'Jon Masropian — Software Developer' },
+};
+
+export const viewport: Viewport = { themeColor: '#030306' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-[#000005] text-white overflow-x-hidden scanlines void-nebula custom-cursor">
-        <VoidBackground />
-        <AnomalyOverlay />
-        <AudioUnlock />
-        <CursorGlow />
-        <BootSequenceWrapper>
-          <Navigation />
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <body className="flex min-h-dvh flex-col overflow-x-hidden">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ground focus:px-4 focus:py-2"
+        >
+          Skip to content
+        </a>
+        <Backdrop />
+        <SiteNav />
+        <main id="main" className="relative flex-1">
           {children}
-          <footer className="py-8 px-6 border-t border-purple-500/10 text-center" style={{ position: 'relative', zIndex: 1 }}>
-            <p className="text-xs font-mono text-purple-900/60 tracking-widest">
-              JON MASROPIAN // {new Date().getFullYear()} // [VOID_SIGNAL_ACTIVE]
-            </p>
-          </footer>
-        </BootSequenceWrapper>
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

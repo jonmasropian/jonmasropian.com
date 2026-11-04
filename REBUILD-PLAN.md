@@ -1,6 +1,6 @@
 # Portfolio rebuild plan
 
-**Paused 2026-11-02. Resume here.** Everything below is decided; the next step is writing the build plan.
+**Building in 6 approved stages (started 2026-11-04).** Stage 1 done, waiting on Jon's approval; next is Stage 2 (Home).
 
 ## Where we are
 
@@ -11,8 +11,9 @@
 | Background video | done: `inspiration/higgsfield/loop-1793637133938.mp4` (Jon likes it) |
 | Home layout | done: **B. Horizon, with A's big name** |
 | Resume, certs, career facts | done (in `PRODUCT.md`) |
-| Build plan | **NEXT** (~15 min): write with superpowers:writing-plans, Jon approves |
-| Build, finish review, DESIGN.md | after plan approval |
+| Stage 1 Foundation: old code/deps removed, tokens, fonts, nav + 5 pages, video loop (`public/video/`) | done 2026-11-04, awaiting approval |
+| Stage 2 Home (Horizon) | next |
+| Stage 3 Projects · 4 Biography + certs · 5 Cyber Lab + Resend + GitHub API · 6 Finish review, DESIGN.md, Vercel preview | later |
 
 ## Decisions (Jon, 2026-11-02)
 
@@ -30,8 +31,6 @@
 
 ## Still open
 
-- Typed-line copy (draft: "Software engineer. 22 years keeping Army networks up.").
-- Display and body fonts (sketch fonts are stand-ins; avoid Geist/Inter-style defaults).
-- Python cert full title (assumed "Python Professional Developer" from its badge).
+- Decided by Claude (Jon delegated, reviews at each stage): fonts Big Shoulders / IBM Plex Sans / IBM Plex Mono; typed line "22 years running Army networks. Now I write the software." Never call Jon an engineer: title is Software Developer Apprentice. Feature teaching MySQL (Jon's ask).
+- Python cert title (from PDF): CoITB Professional Python Developer.
 - Resend account + domain/API key (Jon sets up at build time).
-- Old stack cleanup: Three.js/GSAP only served the rejected void effects.

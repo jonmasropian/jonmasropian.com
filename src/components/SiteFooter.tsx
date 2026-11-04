@@ -1,0 +1,19 @@
+import { links } from '@/data/site';
+
+export default function SiteFooter() {
+  const item = 'transition-colors hover:text-ink';
+  return (
+    <footer className="relative mx-auto flex w-full max-w-[1440px] flex-wrap items-center gap-x-6 gap-y-2 px-5 py-6 font-mono text-xs tracking-[0.06em] text-dim md:px-16">
+      <span className="w-full md:mr-auto md:w-auto">© {new Date().getFullYear()} Jon Masropian</span>
+      <a className={item} href={`mailto:${links.email}`}>
+        {links.email}
+      </a>
+      <a className={item} href={links.github} target="_blank" rel="noreferrer">
+        GitHub
+      </a>
+      <a className={item} href={links.linkedin} target="_blank" rel="noreferrer">
+        LinkedIn
+      </a>
+    </footer>
+  );
+}
