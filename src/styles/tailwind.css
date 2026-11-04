@@ -126,11 +126,40 @@
     pointer-events: none;
   }
 
-  &:hover {
+  /* edge light: same cursor-tracked gradient, masked down to the 1px border ring */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 0%),
+      rgb(170 205 255),
+      rgb(90 160 255 / 0.6) 35%,
+      transparent 70%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    opacity: 0;
+    transition: opacity 300ms var(--ease-out-expo);
+    pointer-events: none;
+  }
+
+  & > span {
+    position: relative; /* keep text above the sheen layers */
+  }
+
+  &:hover,
+  &:focus-visible {
     border-color: rgb(137 148 180 / 0.5);
     transition-duration: 150ms, 300ms; /* follow the pointer quickly, settle slowly on leave */
   }
-  &:hover::after {
+  &:hover::after,
+  &:hover::before,
+  &:focus-visible::after,
+  &:focus-visible::before {
     opacity: 1;
   }
 

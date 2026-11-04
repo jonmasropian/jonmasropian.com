@@ -1,13 +1,14 @@
 // Run: node --test src/lib/github.test.ts
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { summarize, timeAgo } from './github.ts';
+import { summarizeCommits, summarizeEvents, timeAgo } from './github.ts';
 
 const now = Date.parse('2026-11-04T12:00:00Z');
 const ev = (type: string, at: string, repo = 'jonmasropian/a') => ({ type, created_at: at, repo: { name: repo } });
+const commit = (date: string) => ({ commit: { author: { date } } });
 
-test('summarize picks the newest push and counts 30-day pushes', () => {
-  const s = summarize(
+test('summarizeEvents picks the newest push and counts 30-day pushes', () => {
+  const s = summarizeEvents(
     [
       ev('PushEvent', '2026-10-01T00:00:00Z'),
       ev('CreateEvent', '2026-11-04T11:00:00Z'),
@@ -16,11 +17,19 @@ test('summarize picks the newest push and counts 30-day pushes', () => {
     ],
     now,
   );
-  assert.deepEqual(s, { lastPushRepo: 'newest', lastPushAt: '2026-11-03T12:00:00Z', pushes30d: 2 });
+  assert.deepEqual(s, { repo: 'newest', isPrivate: false, lastAt: '2026-11-03T12:00:00Z', count30d: 2, unit: 'pushes' });
 });
 
-test('summarize returns null without pushes', () => {
-  assert.equal(summarize([ev('CreateEvent', '2026-11-01T00:00:00Z')], now), null);
+test('summarizeEvents returns null without pushes', () => {
+  assert.equal(summarizeEvents([ev('CreateEvent', '2026-11-01T00:00:00Z')], now), null);
+});
+
+test('summarizeCommits uses the newest commit date regardless of order', () => {
+  const s = summarizeCommits([commit('2026-10-28T16:03:43Z'), commit('2026-11-03T23:48:21Z')]);
+  assert.equal(s?.lastAt, '2026-11-03T23:48:21Z');
+  assert.equal(s?.count30d, 2);
+  assert.equal(s?.repo, 'LMS_Backend');
+  assert.equal(summarizeCommits([]), null);
 });
 
 test('timeAgo units', () => {

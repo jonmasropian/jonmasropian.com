@@ -15,13 +15,17 @@ export default async function GithubStrip({ className }: { className?: string })
             Live from GitHub
           </a>
           <span className={label}>
-            Last push <span className={value}>{timeAgo(a.lastPushAt, Date.now())}</span>
+            Last {a.unit === 'commits' ? 'commit' : 'push'} <span className={value}>{timeAgo(a.lastAt, Date.now())}</span>
           </span>
           <span className={`${label} hidden sm:inline`}>
-            Repo <span className={`${value} normal-case`}>{a.lastPushRepo}</span>
+            Repo <span className={`${value} normal-case`}>{a.repo}</span>
+            {a.isPrivate && <span className="ml-2">(private)</span>}
           </span>
           <span className={label}>
-            Last 30 days <span className={value}>{a.pushes30d} pushes</span>
+            Last 30 days{' '}
+            <span className={value}>
+              {a.count30d >= 100 ? '100+' : a.count30d} {a.unit}
+            </span>
           </span>
         </>
       ) : (

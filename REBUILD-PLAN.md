@@ -1,6 +1,6 @@
 # Portfolio rebuild plan
 
-**Building in 6 approved stages (started 2026-11-04).** Stages 1–2 approved and committed; next is Stage 3 (Projects). Open: Jon to pick border-light door edge + "under the hood" API docs (Stage 5); live SQL sandbox suggested as post-launch flagship.
+**Building in 6 approved stages (started 2026-11-04).** Stages 1–2 approved and committed; next is Stage 3 (Projects). Jon said yes (2026-11-04) to door edge light (done) and an "under the hood" API docs page in Stage 5. GitHub strip features private repo `jonmasropian/LMS_Backend` via `GITHUB_TOKEN` (fine-grained, read-only, that repo; must be set in Vercel), falls back to public pushes. Live SQL sandbox = suggested post-launch flagship.
 
 ## Where we are
 
