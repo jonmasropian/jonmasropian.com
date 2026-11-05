@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import type { PointerEvent } from 'react';
+import { resetTilt, tilt } from '@/lib/tilt';
 
 const doors = [
   { href: '/projects', title: 'Projects', line: "What I've built" },
@@ -11,33 +11,13 @@ const doors = [
   { href: '/contact', title: 'Contact', line: 'Send me a message' },
 ];
 
-const MAX_TILT = 8; // degrees; more than this reads as a gimmick
-
-function tilt(e: PointerEvent<HTMLAnchorElement>) {
-  if (e.pointerType !== 'mouse' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const el = e.currentTarget;
-  const r = el.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width;
-  const y = (e.clientY - r.top) / r.height;
-  el.style.setProperty('--rx', `${(0.5 - y) * MAX_TILT}deg`);
-  el.style.setProperty('--ry', `${(x - 0.5) * MAX_TILT}deg`);
-  el.style.setProperty('--mx', `${x * 100}%`);
-  el.style.setProperty('--my', `${y * 100}%`);
-}
-
-function reset(e: PointerEvent<HTMLAnchorElement>) {
-  const s = e.currentTarget.style;
-  s.setProperty('--rx', '0deg');
-  s.setProperty('--ry', '0deg');
-}
-
 export default function Doors({ className }: { className?: string }) {
   return (
     <nav aria-label="Sections" className={className}>
       <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-[18px]">
         {doors.map((d) => (
           <li key={d.href}>
-            <Link href={d.href} onPointerMove={tilt} onPointerLeave={reset} className="door group">
+            <Link href={d.href} onPointerMove={tilt} onPointerLeave={resetTilt} className="glass door group">
               <ArrowUpRight
                 aria-hidden
                 strokeWidth={1.5}
