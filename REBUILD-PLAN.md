@@ -49,7 +49,7 @@ Page `/biography`, Experience mode, calm, readable (65–75ch measure):
 2. **One career timeline** (military merged in), newest first:
    - Software Developer Apprentice, ERA Solutions LLC, Sept 2026–present: teaches MySQL through ERA's LMS over Teams; website projects with the dev team; works with Vet Solutions 4 Life at Fort Sill bringing in students for CoITB-certified programs.
    - Desktop Analyst, Memorial Health System of Southwest Oklahoma, May–Aug 2026: account/login troubleshooting, desktop and laptop hardware/software, Windows 25H2 rollout, VPN, VoIP, imaging, surgery air/humidity monitoring; team of ~7 analysts across sites. Tools confirmed: Active Directory (daily), ServiceNow, NinjaOne. **Intune NOT confirmed; don't list it.**
-   - Era Academy full-stack bootcamp: completed (exact dates unknown; ask Jon).
+   - Era Academy full-stack bootcamp: 2/23/2026–7/25/2026, completed.
    - CompTIA Security+ (SY0-701), earned 1/19/2026.
    - U.S. Army 2004–2026, IT & Network Support Supervisor / Senior Communications Technician (25H Signal Corps): tactical and garrison networks for hundreds of users, STIG/DoD policy, Tier I/II help desk, equipment accountability, trained junior Soldiers. Inside it: Drill Sergeant / Technical Training Lead 2016–2019 (2,000+ trainees); team lead of 10–30.
    - Education: Central Texas College coursework only. **No degree; never claim one.** Active Secret clearance (OK to show).
