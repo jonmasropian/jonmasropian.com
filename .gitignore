@@ -39,3 +39,9 @@ graphify-out/
 inspiration/
 .playwright-mcp/
 .impeccable/review/
+
+# local tool state, never published
+.superpowers/
+docs/superpowers/
+.claude/
+.vscode/
