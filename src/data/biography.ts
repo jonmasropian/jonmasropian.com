@@ -86,6 +86,7 @@ export type Cert = {
   number?: string;
   image?: string; // rendered from the PDF in inspiration/; absent = text-only card
   verify?: { label: string; code: string; url: string };
+  badge?: string; // public Credly badge URL
 };
 
 export const certs: Cert[] = [
@@ -101,6 +102,7 @@ export const certs: Cert[] = [
       code: '3181fa2073234c82a5805f7eb2d56918',
       url: 'https://verify.comptia.org',
     },
+    badge: 'https://www.credly.com/badges/8364fa35-763c-46f5-8f0b-7df35346c9c9/public_url',
   },
   { slug: 'coitb-html-css', title: 'Certified HTML/CSS Web Designer', issuer: 'CoITB', issued: 'Mar 7, 2026', expires: 'Mar 7, 2029', number: '6846', image: '/certs/coitb-html-css.webp' },
   { slug: 'coitb-javascript', title: 'Certified JavaScript Professional Developer', issuer: 'CoITB', issued: 'Apr 11, 2026', expires: 'Apr 11, 2029', number: '6920', image: '/certs/coitb-javascript.webp' },
