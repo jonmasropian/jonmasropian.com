@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T00:00:00Z",
+  "title": "Design System: Jon Masropian",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Night Ground", "canonical": "#030306", "tonalRamp": ["#030306", "#262629", "#404042", "#59595b", "#7f7f81", "#9e9e9f", "#d9d9d9", "#f2f2f2"] },
+      "navy": { "role": "neutral", "displayName": "Deep Navy", "canonical": "#092659", "tonalRamp": ["#05152f", "#092659", "#29426e", "#455b82", "#70819f", "#929fb6", "#d4d9e2", "#f1f2f5"] },
+      "cobalt": { "role": "primary", "displayName": "Horizon Cobalt", "canonical": "#0252ac", "tonalRamp": ["#012c5c", "#024999", "#1a63b4", "#4f87c5", "#79a4d3", "#a4c0e1", "#cadbee", "#edf3f9"] },
+      "signal": { "role": "primary", "displayName": "Signal Blue", "canonical": "#5aa0ff", "tonalRamp": ["#172840", "#26436b", "#355e96", "#4c86d6", "#64a6ff", "#95c2ff", "#c2dcff", "#ebf3ff"] },
+      "crimson": { "role": "secondary", "displayName": "Edge Crimson", "canonical": "#d31816", "tonalRamp": ["#4a0807", "#7f0e0d", "#d31816", "#d93735", "#e26564", "#f0afae", "#f6d1d0", "#fcf0ef"] },
+      "wine": { "role": "secondary", "displayName": "Wine Shadow", "canonical": "#591e28", "tonalRamp": ["#2c0f14", "#4f1b23", "#69343d", "#7d4f57", "#9b787e", "#cbb9bc", "#e1d6d8", "#f5f1f2"] },
+      "alert": { "role": "tertiary", "displayName": "Alert Coral", "canonical": "#ff8a85", "tonalRamp": ["#3c201f", "#643634", "#8c4c49", "#c86c68", "#f88681", "#ffaba8", "#ffcfcd", "#ffefee"] },
+      "ink": { "role": "neutral", "displayName": "Paper Ink", "canonical": "#f6f6f6", "tonalRamp": ["#262626", "#404040", "#595959", "#808080", "#9e9e9e", "#bdbdbd", "#d9d9d9", "#f6f6f6"] },
+      "muted": { "role": "neutral", "displayName": "Fog Grey", "canonical": "#a6a9af", "tonalRamp": ["#262628", "#3f4042", "#58595d", "#7d8084", "#a6a9af", "#bbbdc1", "#d8d9dc", "#f2f2f3"] },
+      "dim": { "role": "neutral", "displayName": "Slate Dim", "canonical": "#8994b4", "tonalRamp": ["#23262f", "#3b404e", "#53596d", "#76809b", "#8994b4", "#b6bdd1", "#d5d9e4", "#f1f2f6"] },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "rgb(137 148 180 / 0.24)", "tonalRamp": ["rgb(137 148 180 / 0.08)", "rgb(137 148 180 / 0.16)", "rgb(137 148 180 / 0.24)", "rgb(137 148 180 / 0.32)", "rgb(137 148 180 / 0.4)", "rgb(137 148 180 / 0.5)", "rgb(137 148 180 / 0.65)", "rgb(137 148 180 / 0.8)"] }
+    },
+    "typographyMeta": {
+      "display-hero": { "displayName": "Display Hero", "purpose": "Home name only, two lines of condensed caps; second line in Slate Dim, sinking into the horizon." },
+      "display": { "displayName": "Display", "purpose": "The single uppercase H1 on every inner page." },
+      "headline": { "displayName": "Headline", "purpose": "Uppercase section headings within a page." },
+      "title": { "displayName": "Title", "purpose": "Card and door titles in Paper Ink; 1.875-2.25rem on featured rows." },
+      "lead": { "displayName": "Lead", "purpose": "The typed line under the hero name." },
+      "body": { "displayName": "Body", "purpose": "Prose and summaries in Fog Grey, max 60ch." },
+      "label": { "displayName": "Label", "purpose": "Mono uppercase labels, action links, footer, GitHub strip; 0.06-0.08em tracking." },
+      "data": { "displayName": "Data", "purpose": "Terminal output, API responses, certificate details; tabular numbers." }
+    },
+    "shadows": [
+      { "name": "glass-drop", "value": "0 18px 40px -24px rgb(0 0 0 / 0.9)", "purpose": "Every glass panel, door and the terminal: sits the glass on the plane." },
+      { "name": "pill-glow", "value": "0 6px 24px -10px rgb(2 82 172 / 0.7)", "purpose": "Contact pill at rest; offset downward like light on the floor." },
+      { "name": "pill-glow-hover", "value": "0 10px 32px -10px rgb(2 82 172 / 0.95)", "purpose": "Contact pill on hover." },
+      { "name": "focus-ring", "value": "outline: 2px solid #5aa0ff; outline-offset: 3px", "purpose": "Global :focus-visible ring on every element." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All state transitions." },
+      { "name": "follow", "value": "150ms", "purpose": "Glass border following the pointer in." },
+      { "name": "settle", "value": "300ms", "purpose": "Hover color, underline, glow, pill lift." },
+      { "name": "tilt", "value": "500ms", "purpose": "Glass transform returning to rest." },
+      { "name": "route-veil", "value": "700ms", "purpose": "Backdrop veil and crimson light changing between home and inner pages." },
+      { "name": "cursor-blink", "value": "1.1s steps(1) infinite", "purpose": "Crimson block cursor on the typed line and terminal." },
+      { "name": "typing", "value": "34ms per character, 380ms after a period, 500ms initial delay", "purpose": "Typed line cadence." },
+      { "name": "tilt-max", "value": "8deg", "purpose": "Maximum pointer tilt; mouse only, off under reduced motion." },
+      { "name": "door-rest", "value": "rotateX(10deg) in perspective(500px), lg+", "purpose": "Doors lean back onto the horizon plane." },
+      { "name": "reduced-motion", "value": "0.01ms animations and transitions; video paused; typed line and terminal show final state", "purpose": "prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "40rem" },
+      { "name": "md", "value": "48rem" },
+      { "name": "lg", "value": "64rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Contact Pill",
+      "kind": "button",
+      "refersTo": "pill",
+      "description": "The one gradient-edged pill; Contact nav link and the contact form submit only.",
+      "html": "<a class=\"ds-pill\" href=\"#\">Contact</a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 8px; padding: 0.55rem 1.25rem; border-radius: 999px; border: 1px solid transparent; background: linear-gradient(#030306, #030306) padding-box, linear-gradient(90deg, #d31816, #0252ac) border-box; color: #f6f6f6; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; text-decoration: none; box-shadow: 0 6px 24px -10px rgb(2 82 172 / 0.7); transition: box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-pill:hover { box-shadow: 0 10px 32px -10px rgb(2 82 172 / 0.95); transform: translateY(-1px); } .ds-pill:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action: Try it, résumé download.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polygon points=\"6 3 20 12 6 21 6 3\"/></svg>Try it</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 999px; border: 1px solid rgb(137 148 180 / 0.24); background: transparent; color: #5aa0ff; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: color 150ms, border-color 150ms; } .ds-btn-outline:hover { color: #f6f6f6; border-color: rgb(90 160 255 / 0.6); } .ds-btn-outline:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Contact form field with mono label; Signal focus, Alert Coral error.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-email\">Email</label><input class=\"ds-field\" id=\"ds-email\" type=\"email\">",
+      "css": ".ds-field-label { display: block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8994b4; } .ds-field { margin-top: 8px; width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid rgb(137 148 180 / 0.65); background: rgb(3 3 6 / 0.7); color: #f6f6f6; caret-color: #d31816; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; transition: border-color 150ms; } .ds-field:hover { border-color: #8994b4; } .ds-field:focus { border-color: #5aa0ff; } .ds-field:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; } .ds-field[aria-invalid=true] { border-color: #ff8a85; }"
+    },
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Mono wordmark left, text links right with crimson draw-in underline, Contact as the pill.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Jon Masropian</a><ul><li><a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Projects</a></li><li><a class=\"ds-nav-link\" href=\"#\">Biography</a></li><li><a class=\"ds-nav-link\" href=\"#\">Cyber Lab</a></li></ul></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; padding: 32px 64px; background: #030306; } .ds-nav ul { display: flex; gap: 40px; list-style: none; margin: 0; padding: 0; } .ds-nav-mark { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #f6f6f6; text-decoration: none; } .ds-nav-mark:hover { color: #5aa0ff; } .ds-nav-link { position: relative; padding: 4px 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; color: #a6a9af; text-decoration: none; transition: color 150ms; } .ds-nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: #d31816; transform: scaleX(0); transform-origin: left; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav-link:hover, .ds-nav-link[aria-current=page] { color: #f6f6f6; } .ds-nav-link:hover::after, .ds-nav-link[aria-current=page]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Stack Chip and Status Tag",
+      "kind": "chip",
+      "refersTo": "chip-stack",
+      "description": "Hairline stack chips; crimson-bordered status tag sits beside a title, never above it.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-tag\">In progress</span><span class=\"ds-chip\">Next.js</span><span class=\"ds-chip\">PostgreSQL</span></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 8px; background: #030306; padding: 16px; } .ds-chip { border-radius: 999px; border: 1px solid rgb(137 148 180 / 0.24); padding: 4px 12px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; color: #8994b4; } .ds-tag { border-radius: 999px; border: 1px solid rgb(211 24 22 / 0.5); padding: 4px 12px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(246 246 246 / 0.8); }"
+    },
+    {
+      "name": "Glass Panel",
+      "kind": "card",
+      "refersTo": "glass-panel",
+      "description": "Project and certificate card: tinted glass, hairline edge, cursor light inside and on the edge.",
+      "html": "<article class=\"ds-glass\" tabindex=\"0\"><h3 class=\"ds-glass-title\">Bean's Place</h3><p class=\"ds-glass-body\">Coffee shop site with menu, map and ordering.</p><a class=\"ds-glass-link\" href=\"#\">Live site</a></article>",
+      "css": ".ds-glass { position: relative; isolation: isolate; max-width: 420px; padding: 28px; border-radius: 18px; border: 1px solid rgb(137 148 180 / 0.24); background: linear-gradient(160deg, rgb(9 38 89 / 0.72), rgb(3 3 6 / 0.82)); box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9); transition: border-color 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-glass::after { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: radial-gradient(220px circle at 50% 0%, rgb(90 160 255 / 0.16), transparent 70%); opacity: 0; transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; } .ds-glass:hover, .ds-glass:focus-visible { border-color: rgb(137 148 180 / 0.5); } .ds-glass:hover::after, .ds-glass:focus-visible::after { opacity: 1; } .ds-glass:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; } .ds-glass-title { margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 24px; font-weight: 500; color: #f6f6f6; } .ds-glass-body { margin: 12px 0 24px; font-family: 'IBM Plex Sans', system-ui, sans-serif; line-height: 1.625; color: #a6a9af; } .ds-glass-link { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5aa0ff; text-decoration: none; } .ds-glass-link:hover { color: #f6f6f6; }"
+    },
+    {
+      "name": "Door",
+      "kind": "custom",
+      "refersTo": "door",
+      "description": "Home glass link resting on the horizon at rotateX 10deg in perspective 500px.",
+      "html": "<a class=\"ds-door\" href=\"#\"><svg class=\"ds-door-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg><span class=\"ds-door-title\">Projects</span><span class=\"ds-door-line\">What I've built</span></a>",
+      "css": ".ds-door { position: relative; display: flex; flex-direction: column; justify-content: flex-end; width: 260px; height: 9rem; padding: 1.4rem; border-radius: 18px; border: 1px solid rgb(137 148 180 / 0.24); background: linear-gradient(160deg, rgb(9 38 89 / 0.72), rgb(3 3 6 / 0.82)); box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9); text-decoration: none; transform: perspective(500px) rotateX(10deg); transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-door:hover, .ds-door:focus-visible { border-color: rgb(137 148 180 / 0.5); } .ds-door:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; } .ds-door-arrow { position: absolute; top: 20px; right: 20px; color: #8994b4; transition: color 300ms, translate 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-door:hover .ds-door-arrow { color: #f6f6f6; translate: 2px -2px; } .ds-door-title { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 24px; font-weight: 500; color: #f6f6f6; } .ds-door-line { margin-top: 4px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.375; color: #a6a9af; }"
+    },
+    {
+      "name": "Terminal",
+      "kind": "custom",
+      "refersTo": "terminal",
+      "description": "Recorded psql session: mono header bar, data body, crimson block cursor, faded top edge.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-bar\"><span><i class=\"ds-term-dot\"></i>Recording</span><button class=\"ds-term-replay\" type=\"button\">Replay</button></div><pre class=\"ds-term-body\"><span class=\"ds-term-prompt\">portfolio=&gt; </span>SELECT count(*) FROM projects;\n<span class=\"ds-term-out\"> count\n-------\n     3</span>\n<span class=\"ds-term-prompt\">portfolio=&gt; </span><i class=\"ds-term-cursor\"></i></pre></div>",
+      "css": ".ds-term { max-width: 520px; overflow: hidden; border-radius: 18px; border: 1px solid rgb(137 148 180 / 0.24); background: rgb(3 3 6 / 0.85); box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9); } .ds-term-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgb(137 148 180 / 0.24); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #8994b4; } .ds-term-dot { display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 999px; background: #d31816; } .ds-term-replay { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: uppercase; color: #5aa0ff; cursor: pointer; } .ds-term-replay:hover { color: #f6f6f6; } .ds-term-replay:focus-visible { outline: 2px solid #5aa0ff; outline-offset: 3px; } .ds-term-body { margin: 0; padding: 24px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.6; color: #f6f6f6; mask-image: linear-gradient(transparent, #000 1rem); } .ds-term-prompt { color: #8994b4; } .ds-term-out { color: #a6a9af; } .ds-term-cursor { display: inline-block; width: 0.55em; height: 1.1em; transform: translateY(0.2em); background: #d31816; animation: ds-blink 1.1s steps(1) infinite; } @keyframes ds-blink { 50% { opacity: 0; } } @media (prefers-reduced-motion: reduce) { .ds-term-cursor { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Horizon Floor",
+    "overview": "The page stands on a particle horizon. A looping, generated particle wave crosses the viewport at about 59% height, and everything on the home screen is placed against that line: Jon's name sinks into the wave, his rim-lit portrait rises out of it, and four dark glass doors rest on it, tilted back as if lying on the plane. The world is near-black and lit from two sides: navy and cobalt from the right, crimson and wine from the left. Text is close-white with two quieter greys.\n\nInner pages (Projects, Biography, Cyber Lab, Contact, Under the hood) share the same world in a calmer reading mode. The horizon video keeps running behind them but is dimmed under a 72% ground veil, and the crimson ambient light drops to 30%. Density is low: one huge condensed-caps heading per page, then glass panels on a 1440px column.\n\nThe voice is plain and credible, never theatrical. Jon has rejected boot sequences, glitch, corruption, scanline and \"void horror\" effects (PRODUCT.md), so the sci-fi stays in the light and the material, never in the copy or in fake system noise.",
+    "keyCharacteristics": [
+      "Near-black ground lit from two sides (cool right, warm left), never flat.",
+      "Condensed heavy caps for one heading per page; Plex Sans for reading; Plex Mono for every label and data value.",
+      "Dark tinted glass with 1px hairline borders and a cursor light that follows the pointer.",
+      "One gradient-edged pill, reserved for the contact action.",
+      "One authored motion moment per page (typed line, terminal replay); everything else is quiet state transitions."
+    ],
+    "rules": [
+      { "name": "The Lifted Text Rule", "body": "Cobalt and crimson are light sources, not text colors. When either must be read as text on ground, use its lifted twin: Signal Blue for links and actions, Alert Coral for errors.", "section": "colors" },
+      { "name": "The Two-Sided Light Rule", "body": "Cool light comes from the right, warm light from the left: in the backdrop, on the portrait rim, and in the pill gradient (crimson left, cobalt right). Do not flip or center it.", "section": "colors" },
+      { "name": "The One Loud Line Rule", "body": "Big Shoulders appears once per page as the H1, plus section headlines. It is never used for body, labels, or buttons (the mobile menu items and the certificate issuer placeholder are the only other display uses).", "section": "typography" },
+      { "name": "The Mono Means Data Rule", "body": "Anything that is a label, a value, a timestamp, a command or a small action link is set in Plex Mono. Prose is never mono.", "section": "typography" },
+      { "name": "The Desktop-Only Blur Rule", "body": "Backdrop blur is enabled from 64rem up only. Below that, raise the glass tint instead.", "section": "elevation" },
+      { "name": "The Cursor Light Rule", "body": "Glass responds to the pointer with light, not lift: a 220px radial Signal Blue wash inside and a matching glow masked to the 1px edge, plus a tilt of at most 8 degrees. Mouse pointers only, and never under reduced motion.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do place home elements against the horizon at 59% of the viewport, and keep the video top-anchored at 118% height so the wave stays there.",
+      "Do use Signal Blue for links and actions and Alert Coral for errors (The Lifted Text Rule).",
+      "Do keep warm light on the left and cool light on the right (The Two-Sided Light Rule).",
+      "Do build every container as glass with a 1px hairline and 18px corners; enable blur only from 64rem.",
+      "Do set labels, metadata and data in Plex Mono uppercase at 12px with 0.06-0.08em tracking.",
+      "Do give every motion a reduced-motion final state and respect the Pause background choice.",
+      "Do use expo-out easing (cubic-bezier(0.16, 1, 0.3, 1)) for state transitions: 150ms to follow, 300ms to settle, 500ms for tilt, 700ms for backdrop changes between routes."
+    ],
+    "donts": [
+      "Don't add a second gradient-edged pill; it belongs to the Contact action alone.",
+      "Don't put eyebrow or kicker labels above headings, or number sections; status tags go beside titles.",
+      "Don't use zero-offset colored glow halos; light is offset downward or masked to an edge.",
+      "Don't use glitch, scanline, corruption or boot-sequence effects, or hacker-theatre copy.",
+      "Don't set cobalt or crimson as body or link text on ground.",
+      "Don't tilt glass more than 8 degrees, or tilt for touch pointers."
+    ]
+  }
+}

@@ -35,12 +35,12 @@ export default function TryIt({ method, path, body }: { method: 'GET' | 'POST'; 
     <div>
       <button
         type="button"
-        onClick={run}
-        disabled={busy}
-        className="inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-2 font-mono text-xs tracking-[0.08em] text-signal uppercase transition-colors hover:border-signal/60 hover:text-ink disabled:cursor-wait"
+        onClick={() => !busy && run()}
+        aria-disabled={busy}
+        className="inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-3 font-mono text-xs tracking-[0.08em] text-signal uppercase transition-colors hover:border-signal/60 hover:text-ink aria-disabled:cursor-wait"
       >
         {busy ? <LoaderCircle aria-hidden size={14} className="animate-spin" /> : <Play aria-hidden size={14} strokeWidth={1.75} />}
-        Try it
+        Try it<span className="sr-only">: {method} {path}</span>
       </button>
 
       <div aria-live="polite">
@@ -49,7 +49,7 @@ export default function TryIt({ method, path, body }: { method: 'GET' | 'POST'; 
             <p className="mt-4 text-alert">The request didn&apos;t reach the server. Check your connection and try again.</p>
           ) : (
             <div className="mt-4 overflow-hidden rounded-xl border border-hairline bg-ground/80">
-              <p className="flex gap-5 border-b border-hairline px-4 py-2 font-mono text-xs text-dim tabular-nums">
+              <p className="flex gap-5 border-b border-hairline px-4 py-3 font-mono text-xs text-dim tabular-nums">
                 <span className={result.status < 400 ? 'text-signal' : 'text-alert'}>{result.status}</span>
                 <span>{result.ms} ms</span>
               </p>

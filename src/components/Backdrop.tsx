@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+import { MOTION_EVENT, isPaused } from '@/lib/motion';
 
 // Lives in the root layout so the loop never restarts between pages; inner pages just dim it.
 export default function Backdrop() {
@@ -13,12 +14,16 @@ export default function Backdrop() {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const sync = () => {
       if (!v) return;
-      if (mq.matches) v.pause();
+      if (mq.matches || isPaused()) v.pause();
       else v.play().catch(() => {}); // autoplay can be refused (low-power mode); the poster stays
     };
     sync();
     mq.addEventListener('change', sync);
-    return () => mq.removeEventListener('change', sync);
+    window.addEventListener(MOTION_EVENT, sync);
+    return () => {
+      mq.removeEventListener('change', sync);
+      window.removeEventListener(MOTION_EVENT, sync);
+    };
   }, []);
 
   return (
@@ -36,6 +41,14 @@ export default function Backdrop() {
         <source src="/video/horizon-854.mp4" type="video/mp4" media="(max-width: 768px)" />
         <source src="/video/horizon-1280.mp4" type="video/mp4" />
       </video>
+      {/* crimson light from the left (direction contract): ambient across the field, not a halo */}
+      <div
+        className="absolute inset-0 mix-blend-screen transition-opacity duration-700 ease-out-expo"
+        style={{
+          background: 'radial-gradient(50% 45% at 0% 55%, rgb(211 24 22 / 0.22), transparent 70%)',
+          opacity: home ? 1 : 0.3,
+        }}
+      />
       <div
         className="absolute inset-0 bg-ground transition-opacity duration-700 ease-out-expo"
         style={{ opacity: home ? 0 : 0.72 }}

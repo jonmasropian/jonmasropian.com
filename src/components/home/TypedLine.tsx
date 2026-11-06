@@ -26,9 +26,16 @@ export default function TypedLine({ text, className }: { text: string; className
   return (
     <p className={className}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden>
-        {text.slice(0, count)}
-        <span className="ml-1 inline-block h-[1.05em] w-[0.45em] translate-y-[0.15em] animate-[blink_1.1s_steps(1)_infinite] bg-crimson" />
+      {/* invisible full sentence holds the final height, so typing never pushes the layout down (CLS) */}
+      <span aria-hidden className="grid">
+        <span className="invisible col-start-1 row-start-1">
+          {text}
+          <span className="ml-1 inline-block w-[0.45em]" />
+        </span>
+        <span className="col-start-1 row-start-1">
+          {text.slice(0, count)}
+          <span className="ml-1 inline-block h-[1.05em] w-[0.45em] translate-y-[0.15em] animate-[blink_1.1s_steps(1)_infinite] bg-crimson" />
+        </span>
       </span>
     </p>
   );

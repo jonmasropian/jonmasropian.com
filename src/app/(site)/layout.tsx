@@ -11,7 +11,7 @@ const display = Big_Shoulders({
   axes: ['opsz'],
   adjustFontFallback: false, // next has no metrics for Big Shoulders; the stack in tailwind.css covers the swap
   variable: '--font-big-shoulders',
-  display: 'swap',
+  display: 'block', // preloaded and brief; avoids the hero name flashing in a wide fallback face
 });
 const sans = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-plex-sans', display: 'swap' });
 const mono = IBM_Plex_Mono({

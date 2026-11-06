@@ -70,19 +70,19 @@ export default function CertCard({ cert: c, featured }: { cert: Cert; featured?:
             {c.verify && (
               <a href={c.verify.url} target="_blank" rel="noreferrer" className={`${link} text-signal hover:text-ink`}>
                 Verify at CompTIA <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />
-                <span className="sr-only">(opens in a new tab)</span>
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
             {c.badge && (
               <a href={c.badge} target="_blank" rel="noreferrer" className={`${link} text-signal hover:text-ink`}>
                 Credly badge <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />
-                <span className="sr-only">(opens in a new tab)</span>
+                <span className="sr-only"> for {c.title} (opens in a new tab)</span>
               </a>
             )}
             {c.image && (
               <a href={c.image} target="_blank" rel="noreferrer" className={`${link} text-dim hover:text-ink`}>
                 Full size <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />
-                <span className="sr-only">(opens in a new tab)</span>
+                <span className="sr-only"> {c.title} certificate (opens in a new tab)</span>
               </a>
             )}
           </div>

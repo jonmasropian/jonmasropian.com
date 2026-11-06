@@ -10,7 +10,7 @@ related_targets: []
 Scope: the home route of a multi-page portfolio (Projects, Biography, Cyber Lab, Contact are separate pages). Mode: Experience. One viewport on desktop, short stack on phone; no long scroll.
 Audience: SWE recruiters and hiring managers, cold, skimming. Job: know who Jon is in seconds and go to one door, or email. Proof: live GitHub activity from his own server route.
 Constraints: smoothness on desktop, laptop, phone is top priority; reduced-motion gets still poster; no AI-slop copy; no phone number.
-Unresolved: final typed-line copy (Jon to approve); display/body faces (sketch faces are stand-ins).
+Resolved (2026-11-02..06): Jon chose Horizon from the three sketches in .impeccable/mocks/decision/ (horizon, hud-frame, title-sequence). Typed line approved: "22 years running Army networks. Now I write software and teach MySQL." Faces locked: Big Shoulders (display caps), IBM Plex Sans (body), IBM Plex Mono (labels/data). Inner pages (projects, biography, cyber-lab, contact, under-the-hood) share this world in Read/Experience mode.
 
 ## Direction contract
 

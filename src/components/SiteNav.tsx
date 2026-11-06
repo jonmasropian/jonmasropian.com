@@ -2,24 +2,33 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '@/data/site';
 
 export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
 
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      toggle.current?.focus();
+    };
+    // page behind the full-screen menu is unreachable by keyboard and screen readers while it's open
+    const main = document.getElementById('main');
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
+    if (main) main.inert = true;
     return () => {
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
+      if (main) main.inert = false;
     };
   }, [open]);
 
@@ -31,7 +40,7 @@ export default function SiteNav() {
       >
         <Link
           href="/"
-          className="font-mono text-[13px] tracking-[0.14em] text-ink uppercase hover:text-signal"
+          className="-my-3 py-3 font-mono text-[13px] tracking-[0.14em] text-ink uppercase hover:text-signal"
         >
           Jon Masropian
         </Link>
@@ -63,6 +72,7 @@ export default function SiteNav() {
         </ul>
 
         <button
+          ref={toggle}
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}

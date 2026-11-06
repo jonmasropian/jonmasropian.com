@@ -102,7 +102,7 @@
   background: linear-gradient(160deg, rgb(9 38 89 / 0.72), rgb(3 3 6 / 0.82));
   box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9);
   /* perspective lives on the element itself: on a parent it only reaches direct children */
-  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform: perspective(var(--persp, 700px)) rotateX(calc(var(--rx-rest, 0deg) + var(--rx, 0deg))) rotateY(var(--ry, 0deg));
   transition:
     transform 500ms var(--ease-out-expo),
     border-color 300ms var(--ease-out-expo);
@@ -167,6 +167,17 @@
   }
 }
 
+/* Cyber Lab scroll box: soft top edge (and right edge on phones, where wide tables scroll sideways)
+   so clipped lines read as scrolling, not broken. */
+@utility terminal-fade {
+  mask-image: linear-gradient(transparent, #000 1rem), linear-gradient(90deg, #000 88%, transparent);
+  mask-composite: intersect;
+
+  @media (width >= 48rem) {
+    mask-image: linear-gradient(transparent, #000 1rem);
+  }
+}
+
 /* Home door: glass resting on the horizon. */
 @utility door {
   display: flex;
@@ -181,6 +192,8 @@
     height: clamp(7rem, 16dvh, 9.5rem);
     padding: 1.4rem;
     border-radius: 18px;
+    --rx-rest: 6deg; /* top edge leans back, so the doors rest on the horizon plane */
+    --persp: 600px;
   }
 }
 

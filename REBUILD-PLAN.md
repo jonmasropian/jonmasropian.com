@@ -1,7 +1,7 @@
 # Portfolio rebuild: session brief
 
 **New session: read this whole file first, then `PRODUCT.md`. Don't re-ask Jon anything answered here.**
-Last updated 2026-11-06. Stages 1–5 of 6 are approved and committed (Stage 5 = `e8f9639`: /cyber-lab terminal, /contact via Resend (test email received), /under-the-hood API docs, /api/github + /api/contact), plus a résumé PDF download (`public/Jon-Masropian-Resume.pdf`, no phone; source + `build-resume.js` in `inspiration/resume/`). **Next: Stage 6 (Finish).** Jon is retired from the Army; site and resume say so once, plainly.
+Last updated 2026-11-06. **All 6 stages approved; merged to main and live.** Stages 1–5 committed (Stage 5 = `e8f9639`: /cyber-lab terminal, /contact via Resend (test email received), /under-the-hood API docs, /api/github + /api/contact), plus a résumé PDF download (`public/Jon-Masropian-Resume.pdf`, no phone; source + `build-resume.js` in `inspiration/resume/`). Stage 6: finish review (fixed: matte-traced rim light outside the outline, left crimson light, name masked into the wave, doors lean 6deg / 600px, CLS 0.186→0.001), a11y pass (pause-background toggle, terminal plays once + Replay, form focus/labels), DESIGN.md. **Next: connect jonmasropian.com in Vercel + verify it in Resend, then swap the contact `from` address.** Jon is retired from the Army; site and resume say so once, plainly.
 
 ## 1. Where things stand
 

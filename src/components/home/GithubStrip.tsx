@@ -1,6 +1,7 @@
 import { getGithubActivity, timeAgo } from '@/lib/github';
 import { links } from '@/data/site';
 import ApiPing from './ApiPing';
+import MotionToggle from '../MotionToggle';
 
 export default async function GithubStrip({ className }: { className?: string }) {
   const a = await getGithubActivity();
@@ -14,6 +15,7 @@ export default async function GithubStrip({ className }: { className?: string })
           <a href={links.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-signal hover:text-ink">
             <span aria-hidden className="size-1.5 animate-pulse rounded-full bg-signal" />
             Live from GitHub
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <span className={label}>
             Last {a.unit === 'commits' ? 'commit' : 'push'} <span className={value}>{timeAgo(a.lastAt, Date.now())}</span>
@@ -32,15 +34,19 @@ export default async function GithubStrip({ className }: { className?: string })
       ) : (
         <a href={links.github} target="_blank" rel="noreferrer" className="text-signal hover:text-ink">
           GitHub · jonmasropian
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
       )}
       <span className="flex flex-wrap gap-x-6 gap-y-2 lg:ml-auto">
         <ApiPing />
+        <MotionToggle className="text-dim uppercase hover:text-ink" />
         <a href={links.resume} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
           Résumé
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
         <a href={links.linkedin} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
           LinkedIn
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
         <a href={`mailto:${links.email}`} className="text-dim normal-case hover:text-ink">
           {links.email}

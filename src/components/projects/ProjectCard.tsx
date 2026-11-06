@@ -50,12 +50,12 @@ export default function ProjectCard({ project: p, featured }: { project: Project
           {p.live && (
             <a href={p.live} target="_blank" rel="noreferrer" className={`${link} text-signal hover:text-ink`}>
               Live site <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />
-              <span className="sr-only">(opens in a new tab)</span>
+              <span className="sr-only"> for {p.title} (opens in a new tab)</span>
             </a>
           )}
           <a href={p.code} target="_blank" rel="noreferrer" className={`${link} text-dim hover:text-ink`}>
             Code <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />
-            <span className="sr-only">(opens in a new tab)</span>
+            <span className="sr-only"> for {p.title} (opens in a new tab)</span>
           </a>
         </div>
       </div>

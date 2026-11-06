@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react';
+import { RotateCcw } from 'lucide-react';
 import type { Step } from '@/data/cyberLab';
 
 const PROMPT = 'portfolio=> ';
@@ -47,14 +48,17 @@ export default function Terminal({ session }: { session: Step[] }) {
   useEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       still.current = true;
-      setS({ step: session.length, typed: 0, shown: false }); // everything, no typing
-      return;
+      setS({ step: session.length, typed: 0, shown: false }); // everything at once, no typing
     }
+  }, [session.length]);
+
+  // Plays once and stops (WCAG 2.2.2: no endless motion); Replay restarts it.
+  useEffect(() => {
     const q = session[s.step]?.query;
+    if (!q || still.current) return;
     let wait: number;
     let next: typeof s;
-    if (!q) [wait, next] = [5000, { step: 0, typed: 0, shown: false }]; // loop
-    else if (s.typed < q.length) [wait, next] = [q[s.typed] === '\n' ? 220 : 26, { ...s, typed: s.typed + 1 }];
+    if (s.typed < q.length) [wait, next] = [q[s.typed] === '\n' ? 220 : 26, { ...s, typed: s.typed + 1 }];
     else if (!s.shown) [wait, next] = [450, { ...s, shown: true }]; // the "query ran" beat
     else [wait, next] = [2400, { step: s.step + 1, typed: 0, shown: false }];
     const t = setTimeout(() => setS(next), s.step === 0 && s.typed === 0 ? 900 : wait);
@@ -71,10 +75,21 @@ export default function Terminal({ session }: { session: Step[] }) {
     <div className="overflow-hidden rounded-[18px] border border-hairline bg-ground/85 shadow-[0_18px_40px_-24px_rgb(0_0_0/0.9)] lg:bg-ground/60 lg:backdrop-blur-md">
       <div className="flex items-center justify-between gap-4 border-b border-hairline px-5 py-3 font-mono whitespace-nowrap text-[11px] tracking-[0.08em] text-dim uppercase">
         <span>psql · portfolio</span>
-        <span className="flex items-center gap-2">
-          <span aria-hidden className="size-1.5 rounded-full bg-crimson" />
-          Recording<span className="hidden sm:inline"> · not connected</span>
-        </span>
+        {current || still.current ? (
+          <span className="flex items-center gap-2">
+            <span aria-hidden className="size-1.5 rounded-full bg-crimson" />
+            Recording<span className="hidden sm:inline"> · not connected</span>
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setS({ step: 0, typed: 0, shown: false })}
+            className="-my-3 -mr-2 flex items-center gap-2 px-2 py-3 text-signal uppercase hover:text-ink"
+          >
+            <RotateCcw aria-hidden size={13} strokeWidth={1.75} />
+            Replay<span className="sr-only"> the session</span>
+          </button>
+        )}
       </div>
 
       {/* Screen readers get the whole session once instead of a typing loop. */}
@@ -85,7 +100,7 @@ export default function Terminal({ session }: { session: Step[] }) {
       <div
         ref={box}
         aria-hidden
-        className="h-[min(34rem,68dvh)] overflow-auto p-5 font-mono text-[12px] leading-[1.6] text-ink md:p-6 md:text-[13px]"
+        className="terminal-fade h-[min(34rem,68dvh)] overflow-auto p-5 font-mono text-[12px] leading-[1.6] text-ink md:p-6 md:text-[13px]"
       >
         <pre className="font-mono">
           <span className="text-dim">psql (16.4){'\n'}Type &quot;help&quot; for help.{'\n\n'}</span>

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { links } from '@/data/site';
+import MotionToggle from './MotionToggle';
 
 export default function SiteFooter() {
   if (usePathname() === '/') return null; // home carries these links in its GitHub strip
@@ -13,17 +14,21 @@ export default function SiteFooter() {
       <a className={item} href={`mailto:${links.email}`}>
         {links.email}
       </a>
+      <MotionToggle className={`${item}`} />
       <Link className={item} href="/under-the-hood">
         Under the hood
       </Link>
       <a className={item} href={links.resume} target="_blank" rel="noreferrer">
         Résumé (PDF)
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
       <a className={item} href={links.github} target="_blank" rel="noreferrer">
         GitHub
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
       <a className={item} href={links.linkedin} target="_blank" rel="noreferrer">
         LinkedIn
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     </footer>
   );

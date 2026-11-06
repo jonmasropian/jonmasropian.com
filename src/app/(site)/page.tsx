@@ -14,7 +14,7 @@ export default function HomePage() {
     <section className="relative mx-auto flex max-w-[1440px] flex-col px-5 pt-24 pb-6 lg:block lg:h-dvh lg:min-h-[640px] lg:px-16 lg:pt-0 lg:pb-0">
       <h1 className="font-display text-[21.5vw] leading-[0.84] font-extrabold tracking-[-0.01em] uppercase lg:absolute lg:bottom-[39%] lg:left-16 lg:text-[min(15vw,25dvh)]">
         Jon
-        <span className="block text-dim">Masropian</span>
+        <span className="block text-dim lg:[mask-image:linear-gradient(#000_74%,rgb(0_0_0/0.35))]">Masropian</span>
       </h1>
 
       <TypedLine

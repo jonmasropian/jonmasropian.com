@@ -38,3 +38,4 @@ next-env.d.ts
 graphify-out/
 inspiration/
 .playwright-mcp/
+.impeccable/review/
