@@ -1,7 +1,7 @@
 # Portfolio rebuild: session brief
 
 **New session: read this whole file first, then `PRODUCT.md`. Don't re-ask Jon anything answered here.**
-Last updated 2026-11-06. Stages 1–4 of 6 are approved and committed, plus a résumé PDF download (`public/Jon-Masropian-Resume.pdf`, no phone; source + `build-resume.js` in `inspiration/resume/`). **Next: Stage 5 (Cyber Lab + backend).** Jon is retired from the Army; site and resume say so once, plainly.
+Last updated 2026-11-06. Stages 1–5 of 6 are approved and committed (Stage 5 = `e8f9639`: /cyber-lab terminal, /contact via Resend (test email received), /under-the-hood API docs, /api/github + /api/contact), plus a résumé PDF download (`public/Jon-Masropian-Resume.pdf`, no phone; source + `build-resume.js` in `inspiration/resume/`). **Next: Stage 6 (Finish).** Jon is retired from the Army; site and resume say so once, plainly.
 
 ## 1. Where things stand
 
