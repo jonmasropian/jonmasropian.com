@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from: 'Portfolio <onboarding@resend.dev>', // works without a verified domain; swap once jonmasropian.com is verified
+      from: 'Jon Masropian Portfolio <portfolio@jonmasropian.com>', // domain verified in Resend 2026-11-06
       to: [links.email],
       reply_to: email,
       subject: `Portfolio message from ${name}`,

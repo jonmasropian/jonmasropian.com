@@ -22,7 +22,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL || 'https://jonmasropian.com'),
+  metadataBase: new URL(process.env.SITE_URL || 'https://www.jonmasropian.com'),
   title: { default: 'Jon Masropian — Software Developer', template: '%s — Jon Masropian' },
   description:
     'Jon Masropian: 22-year U.S. Army veteran, now a Software Developer Apprentice at ERA Solutions. Projects, background, and contact.',

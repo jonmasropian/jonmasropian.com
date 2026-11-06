@@ -2,7 +2,7 @@ const ROUTES = ['', '/projects', '/biography', '/cyber-lab', '/contact', '/under
 
 export default async function sitemap() {
   return ROUTES.map((route) => ({
-    url: `${process.env.SITE_URL || 'https://jonmasropian.com'}${route}`,
+    url: `${process.env.SITE_URL || 'https://www.jonmasropian.com'}${route}`,
     lastModified: new Date().toISOString(),
   }));
 }
