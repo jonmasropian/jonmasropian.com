@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import { FileDown } from 'lucide-react';
 import CertCard from '@/components/biography/CertCard';
+import { links } from '@/data/site';
 import { career, certs, intro, type Role } from '@/data/biography';
 
 export const metadata: Metadata = {
@@ -76,6 +78,16 @@ export default function Page() {
           <p key={p}>{p}</p>
         ))}
       </div>
+      <a
+        href={links.resume}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-8 inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-2.5 font-mono text-xs tracking-[0.08em] text-signal uppercase transition-colors hover:border-signal/60 hover:text-ink"
+      >
+        <FileDown aria-hidden size={15} strokeWidth={1.75} />
+        Résumé (PDF)
+        <span className="sr-only">(opens in a new tab)</span>
+      </a>
 
       <h2 className={`mt-24 md:mt-32 ${h2}`}>Career</h2>
       <ol className="relative mt-10 md:mt-14">

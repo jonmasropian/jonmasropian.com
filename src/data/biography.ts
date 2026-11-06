@@ -1,7 +1,7 @@
 // Content approved by Jon 2026-11-06. Facts come from his resume and cert PDFs; never add duties or numbers.
 
 export const intro = [
-  'I spent 22 years in the U.S. Army as a Signal Corps communications technician. I kept tactical and garrison networks running for hundreds of users and trained Soldiers along the way, including three years as a Drill Sergeant.',
+  'I retired from the U.S. Army in 2026 after 22 years as a Signal Corps communications technician. I kept tactical and garrison networks running for hundreds of users and trained Soldiers along the way, including three years as a Drill Sergeant.',
   "In 2026 I earned Security+, completed Era Academy's full-stack bootcamp, and worked as a Desktop Analyst at Memorial Health System of Southwest Oklahoma. Now I'm a Software Developer Apprentice at ERA Solutions, where I build websites with the dev team and teach MySQL.",
 ];
 

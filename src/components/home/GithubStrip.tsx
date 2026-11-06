@@ -33,7 +33,10 @@ export default async function GithubStrip({ className }: { className?: string })
           GitHub · jonmasropian
         </a>
       )}
-      <span className="flex gap-6 lg:ml-auto">
+      <span className="flex flex-wrap gap-x-6 gap-y-2 lg:ml-auto">
+        <a href={links.resume} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
+          Résumé
+        </a>
         <a href={links.linkedin} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
           LinkedIn
         </a>

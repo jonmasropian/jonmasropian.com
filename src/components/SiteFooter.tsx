@@ -12,6 +12,9 @@ export default function SiteFooter() {
       <a className={item} href={`mailto:${links.email}`}>
         {links.email}
       </a>
+      <a className={item} href={links.resume} target="_blank" rel="noreferrer">
+        Résumé (PDF)
+      </a>
       <a className={item} href={links.github} target="_blank" rel="noreferrer">
         GitHub
       </a>

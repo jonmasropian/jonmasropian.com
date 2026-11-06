@@ -72,7 +72,7 @@ Page `/biography`, Experience mode, calm, readable (65–75ch measure):
 2. Accessibility pass (`ui-craft:a11y-auditor`) and a phone smoothness/performance check.
 3. `DESIGN.md` via `impeccable:impeccable-documenter`, including raster provenance: `public/portrait-cutout.webp` = BiRefNet-portrait matte of `public/portfolio-picture.png`; `public/video/*` = crossfaded loop of `inspiration/higgsfield/loop-1793637133938.mp4` (Higgsfield); `public/projects/*` = screenshots of the live sites.
 4. Ask Jon before: merging `rebuild/planning` → `main` (goes live), and deleting the root PNGs `change-model.png`, `remove-api-key.png`, `set-api-key.png` (not mine).
-5. Domain: `metadataBase` and the sitemap use `https://jonmasropian.com` (or `SITE_URL`). **Unknown whether Jon owns that domain**; ask at this stage.
+5. Domain: `metadataBase` and the sitemap use `https://jonmasropian.com` (or `SITE_URL`). Jon owns it (bought through Vercel, not live yet; confirmed 2026-11-06). Connect it to the Vercel project at launch.
 
 ## 7. Post-launch backlog (suggested, nothing promised)
 
