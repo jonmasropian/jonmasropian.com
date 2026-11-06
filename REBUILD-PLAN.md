@@ -55,12 +55,22 @@ Known so far (ask Jon for the rest at kickoff, then show a content plan before b
 - He teaches MySQL through ERA's LMS over Teams (see `src/data/biography.ts`).
 - Earlier advice (still the plan unless he says otherwise): host the databases on free tiers he owns, **MongoDB Atlas M0** and/or **Aiven free MySQL**, not the company Azure account. Read-only or limited-privilege DB users for anything public; keep credentials in Vercel env vars only.
 
-Questions for kickoff:
-1. The three repo names/URLs, and which database each uses (MySQL vs MongoDB).
-2. Are they his own work or class material he wrote for students? (Decides wording on the site.)
-3. Where should they appear: Projects page cards, a new "Teaching" page, or both?
-4. Any student data in the databases? (Must be sample data only before going public.)
-5. Does each app have a frontend to host on Vercel, or is it backend/API only?
+**Jon's answers (2026-11-06):**
+1. Repo links: none yet (he'll provide). Databases: "each one uses MySQL and MongoDB". *Clarify at kickoff:* does every app use both, or do some use MySQL and others MongoDB?
+2. **Class material he wrote for his students** (not personal projects). Wording on the site must say so.
+3. Show them **on the Projects page, in a separate section titled "Teaching"** below the current three projects (same card style).
+4. **All data is made up for class; no real student data.** Still check each DB for anything personal before going public.
+5. **Each app has a frontend and a backend.**
+
+**Open questions for the kickoff session (ask these first):**
+1. Clarify the MySQL/MongoDB split per app (see answer 1).
+2. **Is ERA OK with the class material being public?** It was written for ERA's courses; confirm Jon or ERA owns it before publishing code or live demos.
+3. Each app's stack: frontend (React? plain HTML/JS?) and backend (Node/Express? something else?). A long-running Express server can't run as-is on Vercel; options are a free host for the backend (Render, Railway, Fly.io) or converting routes to Vercel functions. Decide per app.
+4. Do the repos contain hardcoded secrets or connection strings? They must be moved to env vars before any repo is public or deployed.
+5. Can visitors write data (create/edit/delete)? If yes, plan a reset (nightly re-seed) so the demo stays clean, plus rate limits.
+6. Are there seed scripts or SQL/JSON dumps to load the class data into the hosted databases?
+7. Should the repos be public on Jon's GitHub (linked from the cards), or live demos only?
+8. A one-line description per app: what students build or learn with it.
 
 Likely shape (to confirm): create the hosted DBs → load schema + sample data → set env vars in Vercel → deploy each app → add cards with live links → optional tie-in with the Cyber Lab terminal or the backlog's live SQL sandbox.
 
