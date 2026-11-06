@@ -16,6 +16,7 @@
   --color-ink: #f6f6f6;
   --color-muted: #a6a9af;
   --color-dim: #8994b4;
+  --color-alert: #ff8a85; /* crimson lifted to pass contrast as error text on ground */
   --color-hairline: rgb(137 148 180 / 0.24);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

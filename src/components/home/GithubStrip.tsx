@@ -1,5 +1,6 @@
 import { getGithubActivity, timeAgo } from '@/lib/github';
 import { links } from '@/data/site';
+import ApiPing from './ApiPing';
 
 export default async function GithubStrip({ className }: { className?: string }) {
   const a = await getGithubActivity();
@@ -34,6 +35,7 @@ export default async function GithubStrip({ className }: { className?: string })
         </a>
       )}
       <span className="flex flex-wrap gap-x-6 gap-y-2 lg:ml-auto">
+        <ApiPing />
         <a href={links.resume} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
           Résumé
         </a>

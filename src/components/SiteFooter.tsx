@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { links } from '@/data/site';
 
@@ -12,6 +13,9 @@ export default function SiteFooter() {
       <a className={item} href={`mailto:${links.email}`}>
         {links.email}
       </a>
+      <Link className={item} href="/under-the-hood">
+        Under the hood
+      </Link>
       <a className={item} href={links.resume} target="_blank" rel="noreferrer">
         Résumé (PDF)
       </a>

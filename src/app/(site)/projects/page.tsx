@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { projects } from '@/data/projects';
 
@@ -27,6 +28,13 @@ export default function ProjectsPage() {
       <p className="mt-14 max-w-[60ch] text-muted">
         At ERA Solutions I also build backend systems for company clients, including a learning
         platform and a document-processing app. That work is private.
+      </p>
+      <p className="mt-4 max-w-[60ch] text-muted">
+        This site is one too: it has its own API, documented with live requests on{' '}
+        <Link href="/under-the-hood" className="text-signal underline hover:text-ink">
+          Under the hood
+        </Link>
+        .
       </p>
     </section>
   );
