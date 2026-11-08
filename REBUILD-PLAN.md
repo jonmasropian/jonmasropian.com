@@ -23,6 +23,22 @@ Last updated 2026-11-06. **The rebuild is finished and live at https://www.jonma
 
 Shared pieces to reuse: `.glass` utility (tilt + inner light + edge light, keyboard focus too) and `src/lib/tilt.ts` (`tilt` / `resetTilt` pointer handlers). The `.pill` utility is the one gradient-edged button (used for Contact in the nav).
 
+## 1b. Refresh from Danny's review (branch `refresh/danny`, started 2026-11-08)
+
+Source: `inspiration/From Danny.txt`. Claude supervises, agents do the work, Jon approves each checkpoint. Every report ends with "Not checked".
+
+| CP | Scope | Status |
+|---|---|---|
+| 0 | Security headers + `.env*` ignore | done, `3678f9c` |
+| 1 | Footer shown twice on home + home video dimmed on direct load. Cause: Vercel's ISR render of `/` reports path `/index`; fix uses `useSelectedLayoutSegment()` in `SiteFooter`/`Backdrop` | approved |
+| 2 | Calm effects: stop endless blink/pulse, drop desktop blur, Pause stops all loops; tilt only on home doors; typed line → 300ms fade; inner-page video stays | next |
+| 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | |
+| 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | |
+| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages | |
+| 6 | Finish review, docs, fix `npm run lint` (Next 16 dropped `next lint`), merge with OK, live check | |
+
+Open checks: live header + footer check on Vercel preview/prod; `GITHUB_TOKEN` scope (Jon); Lighthouse before/after; real-phone test (Jon); 404 page look.
+
 ## 2. How we work (Jon's rules; follow exactly)
 
 1. **Six stages, Jon approves each one.** Build a stage, show it at `http://localhost:3123`, wait for "approved", then commit to `rebuild/planning`.

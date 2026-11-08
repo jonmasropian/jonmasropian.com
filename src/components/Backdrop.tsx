@@ -1,12 +1,12 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { MOTION_EVENT, isPaused } from '@/lib/motion';
 
 // Lives in the root layout so the loop never restarts between pages; inner pages just dim it.
 export default function Backdrop() {
-  const home = usePathname() === '/';
+  const home = useSelectedLayoutSegment() === null; // not usePathname(): Vercel's ISR render of / reports /index
   const video = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
