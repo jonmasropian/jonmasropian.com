@@ -1,9 +1,6 @@
-'use client';
-
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import type { Cert } from '@/data/biography';
-import { resetTilt, tilt } from '@/lib/tilt';
 
 const link = 'inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
 
@@ -11,9 +8,7 @@ const link = 'inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08e
 export default function CertCard({ cert: c, featured }: { cert: Cert; featured?: boolean }) {
   return (
     <article
-      onPointerMove={tilt}
-      onPointerLeave={resetTilt}
-      className={`glass flex flex-col overflow-hidden rounded-[18px] ${featured ? 'lg:flex-row' : ''}`}
+      className={`panel flex flex-col overflow-hidden rounded-[18px] ${featured ? 'lg:flex-row' : ''}`}
     >
       <div
         className={`relative aspect-[3/2] shrink-0 overflow-hidden border-b border-hairline bg-ink/90 ${featured ? 'lg:aspect-[1200/927] lg:w-[52%] lg:border-r lg:border-b-0' : ''}`}

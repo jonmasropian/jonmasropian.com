@@ -1,4 +1,4 @@
-// Visitor's choice to pause the background video (WCAG 2.2.2). Shared by Backdrop and MotionToggle.
+// Visitor's choice to pause the background video and CSS loops (WCAG 2.2.2). Shared by Backdrop and MotionToggle.
 const KEY = 'background-paused';
 export const MOTION_EVENT = 'background-motion';
 

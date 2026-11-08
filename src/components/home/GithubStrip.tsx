@@ -13,7 +13,7 @@ export default async function GithubStrip({ className }: { className?: string })
       {a ? (
         <>
           <a href={links.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-signal hover:text-ink">
-            <span aria-hidden className="size-1.5 animate-pulse rounded-full bg-signal" />
+            <span aria-hidden className="size-1.5 rounded-full bg-signal" />
             Live from GitHub
             <span className="sr-only"> (opens in a new tab)</span>
           </a>

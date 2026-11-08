@@ -3,13 +3,16 @@
 import { useEffect, useState } from 'react';
 import { MOTION_EVENT, isPaused, setPaused } from '@/lib/motion';
 
-// Pause/play for the looping background video. Hidden when the OS already asks for reduced motion.
+// Pause/play for the looping background video and every CSS loop (via html[data-paused]). Hidden when the OS already asks for reduced motion.
 export default function MotionToggle({ className }: { className?: string }) {
   const [state, setState] = useState<'hidden' | 'playing' | 'paused'>('hidden');
 
   useEffect(() => {
     const mq = matchMedia('(prefers-reduced-motion: reduce)');
-    const sync = () => setState(mq.matches ? 'hidden' : isPaused() ? 'paused' : 'playing');
+    const sync = () => {
+      document.documentElement.toggleAttribute('data-paused', isPaused());
+      setState(mq.matches ? 'hidden' : isPaused() ? 'paused' : 'playing');
+    };
     sync();
     mq.addEventListener('change', sync);
     window.addEventListener(MOTION_EVENT, sync);

@@ -1,9 +1,6 @@
-'use client';
-
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '@/data/projects';
-import { resetTilt, tilt } from '@/lib/tilt';
 
 // `featured` = full-width row (image left, text right on lg) so one project alone still reads as a page.
 export default function ProjectCard({ project: p, featured }: { project: Project; featured?: boolean }) {
@@ -11,9 +8,7 @@ export default function ProjectCard({ project: p, featured }: { project: Project
     'inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
   return (
     <article
-      onPointerMove={tilt}
-      onPointerLeave={resetTilt}
-      className={`glass flex flex-col overflow-hidden rounded-[18px] ${featured ? 'lg:flex-row' : ''}`}
+      className={`panel flex flex-col overflow-hidden rounded-[18px] ${featured ? 'lg:flex-row' : ''}`}
     >
       <div
         className={`relative aspect-[16/10] shrink-0 overflow-hidden border-b border-hairline ${featured ? 'lg:aspect-auto lg:w-[56%] lg:border-r lg:border-b-0' : ''}`}

@@ -1,11 +1,10 @@
 import Doors from '@/components/home/Doors';
 import GithubStrip from '@/components/home/GithubStrip';
 import Portrait from '@/components/home/Portrait';
-import TypedLine from '@/components/home/TypedLine';
 
 export const revalidate = 600; // GitHub strip refresh
 
-const TYPED = '22 years running Army networks. Now I write software and teach MySQL.';
+const TAGLINE = '22 years running Army networks. Now I write software and teach MySQL.';
 
 // Horizon layout: the video's wave sits at 59% of the viewport (see Backdrop). On lg+ every piece is
 // placed against that line; below lg it becomes a short stack.
@@ -17,10 +16,9 @@ export default function HomePage() {
         <span className="block text-dim lg:[mask-image:linear-gradient(#000_74%,rgb(0_0_0/0.35))]">Masropian</span>
       </h1>
 
-      <TypedLine
-        text={TYPED}
-        className="mt-5 max-w-[34ch] text-lg leading-snug font-light text-muted lg:absolute lg:top-[63.5%] lg:left-[4.25rem] lg:mt-0 lg:max-w-none lg:text-[clamp(1.125rem,2.4dvh,1.375rem)]"
-      />
+      <p className="motion-safe:animate-[fade-in_300ms_ease-out] mt-5 max-w-[34ch] text-lg leading-snug font-light text-muted lg:absolute lg:top-[63.5%] lg:left-[4.25rem] lg:mt-0 lg:max-w-none lg:text-[clamp(1.125rem,2.4dvh,1.375rem)]">
+        {TAGLINE}
+      </p>
 
       <Portrait className="mx-auto -mt-2 h-[44svh] lg:absolute lg:right-[9%] lg:bottom-[41%] lg:mx-0 lg:mt-0 lg:h-[47dvh]" />
 

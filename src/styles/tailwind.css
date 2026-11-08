@@ -93,6 +93,13 @@
   }
 }
 
+/* Home tagline: one fade on load. No fill-mode, so the text ends at its own full opacity. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Tilting glass with a cursor light inside and on the edge. Driven by --rx/--ry/--mx/--my from lib/tilt.ts.
    isolation + z-index:-1 keeps both light layers above the glass but under the content. */
 @utility glass {
@@ -159,11 +166,19 @@
   &:has(:focus-visible)::before {
     opacity: 1;
   }
+}
 
-  @media (width >= 64rem) {
-    /* blur only on desktop: over a playing video it is too costly for phones */
-    background: linear-gradient(160deg, rgb(9 38 89 / 0.45), rgb(3 3 6 / 0.3));
-    backdrop-filter: blur(12px);
+/* Reading cards (projects, certificates): same glass fill, no tilt or cursor light.
+   Only the edge brightens on hover or when a link inside has focus. */
+@utility panel {
+  border: 1px solid var(--color-hairline);
+  background: linear-gradient(160deg, rgb(9 38 89 / 0.72), rgb(3 3 6 / 0.82));
+  box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9);
+  transition: border-color 150ms ease;
+
+  &:hover,
+  &:has(:focus-visible) {
+    border-color: rgb(137 148 180 / 0.5);
   }
 }
 
@@ -206,5 +221,13 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+
+  /* "Pause background" (MotionToggle) stops every CSS loop too, not just the video (WCAG 2.2.2).
+     Loading spinners keep turning: they show work in progress and stop on their own. */
+  html[data-paused] *:not(.animate-spin),
+  html[data-paused] *::before,
+  html[data-paused] *::after {
+    animation: none !important;
   }
 }
