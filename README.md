@@ -12,8 +12,7 @@ Personal portfolio of **Jon Masropian**: retired U.S. Army veteran (22 years, Si
 |---|---|
 | `/` | Name, portrait, typed intro line, and a live strip of recent GitHub activity |
 | `/projects` | Three projects with live links and code |
-| `/biography` | Career timeline and seven certifications (CompTIA Security+ ce, five CoITB, Era Academy) with verification links |
-| `/cyber-lab` | A typed PostgreSQL session against a database of my own career (a recording, not a live connection) |
+| `/biography` | Career route (Army to apprenticeship) and seven certifications (CompTIA Security+ ce, five CoITB, Era Academy) with verification links |
 | `/contact` | Contact form that emails me through Resend |
 | `/under-the-hood` | Documentation for the site's own API, with "Try it" buttons that make real requests |
 
@@ -51,7 +50,7 @@ Optional environment variables in `.env.local`:
 node --test src/lib/*.test.ts
 ```
 
-Covers the GitHub activity summaries, contact-form validation and rate limiting, and the psql table formatter.
+Covers the GitHub activity summaries, and contact-form validation and rate limiting.
 
 ## Accessibility
 

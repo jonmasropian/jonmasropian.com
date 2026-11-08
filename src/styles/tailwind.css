@@ -87,12 +87,6 @@
   }
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
 /* Home tagline: one fade on load. No fill-mode, so the text ends at its own full opacity. */
 @keyframes fade-in {
   from {
@@ -179,17 +173,6 @@
   &:hover,
   &:has(:focus-visible) {
     border-color: rgb(137 148 180 / 0.5);
-  }
-}
-
-/* Cyber Lab scroll box: soft top edge (and right edge on phones, where wide tables scroll sideways)
-   so clipped lines read as scrolling, not broken. */
-@utility terminal-fade {
-  mask-image: linear-gradient(transparent, #000 1rem), linear-gradient(90deg, #000 88%, transparent);
-  mask-composite: intersect;
-
-  @media (width >= 48rem) {
-    mask-image: linear-gradient(transparent, #000 1rem);
   }
 }
 

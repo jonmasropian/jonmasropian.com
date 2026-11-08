@@ -13,6 +13,7 @@ export type Role = {
   current?: boolean;
   duties: string[];
   tools?: string[];
+  certIssuer?: string; // shows that issuer's certs (from `certs`) as chips on this stop
   sub?: Omit<Role, 'sub' | 'org'>;
 };
 
@@ -44,6 +45,7 @@ export const career: Role[] = [
     when: 'Feb – Jul 2026',
     title: 'Full Stack Bootcamp',
     org: 'Era Academy',
+    certIssuer: 'CoITB',
     duties: ['Completed the full-stack web development program.'],
   },
   {
@@ -58,7 +60,7 @@ export const career: Role[] = [
     org: 'U.S. Army · 25H Signal Corps',
     tag: 'Active Secret clearance',
     duties: [
-      'Ran tactical and garrison networks for hundreds of users.',
+      'Ran networks for hundreds of users on 7 tactical deployments to the Middle East and in garrison.',
       'Kept systems in line with STIG and DoD policy.',
       'Handled Tier I and II help desk support and equipment accountability.',
       'Led teams of 10 to 30 and trained junior Soldiers.',

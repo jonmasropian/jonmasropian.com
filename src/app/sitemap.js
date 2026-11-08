@@ -1,4 +1,4 @@
-const ROUTES = ['', '/projects', '/biography', '/cyber-lab', '/contact', '/under-the-hood'];
+const ROUTES = ['', '/projects', '/biography', '/contact', '/under-the-hood'];
 
 export default async function sitemap() {
   return ROUTES.map((route) => ({

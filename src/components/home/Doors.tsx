@@ -7,7 +7,7 @@ import { resetTilt, tilt } from '@/lib/tilt';
 const doors = [
   { href: '/projects', title: 'Projects', line: "What I've built" },
   { href: '/biography', title: 'Biography', line: 'From Army Signal Corps to software' },
-  { href: '/cyber-lab', title: 'Cyber Lab', line: 'Watch a PostgreSQL session run' },
+  { href: '/under-the-hood', title: 'Under the hood', line: "My site's API, live" },
   { href: '/contact', title: 'Contact', line: 'Send me a message' },
 ];
 

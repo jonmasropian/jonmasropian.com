@@ -27,13 +27,13 @@ A 22-year U.S. Army veteran (25H Signal Corps network engineer, Drill Sergeant 2
 
 ## Capabilities and Constraints
 
-- Sections to keep: Projects, Experience (one career timeline that merges the military history), Certifications, Cyber Lab terminal.
+- Sections to keep: Projects, Experience (one career timeline that merges the military history), Certifications. (The Cyber Lab terminal was removed 2026-11-08; `/cyber-lab` redirects to `/biography`.)
 - Project slots must look complete with only 1–2 entries; more projects will be added later, including a planned flagship tool (separate future project).
 - Public contact: email, contact form, GitHub, LinkedIn. **No phone number** anywhere public.
 - Employers are named: real employer names, titles, and dates for the hospital job and the apprenticeship.
 - Open decisions:
   - (resolved 2026-11-02: titles, employers and dates come from the resume in inspiration/.)
-  - Real GitHub and LinkedIn URLs (current data has bare domains; `github.com/jonmasropian` appears in terminal copy but is unconfirmed).
+  - Real GitHub and LinkedIn URLs (current data has bare domains; `github.com/jonmasropian` was unconfirmed).
   - Contact form backend (not decided; the form currently only simulates sending).
   - Whether Skills and About sections stay.
 - `src/data/portfolio.ts` is outdated (says "Full Stack Developer", job-hunting for a first dev role, omits the hospital job and apprenticeship). Treat this file as the source of truth over it.
