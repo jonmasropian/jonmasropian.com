@@ -12,10 +12,9 @@ export const metadata: Metadata = {
 
 const h2 = 'font-display text-[clamp(2.75rem,6vw,4.5rem)] leading-[0.9] font-extrabold uppercase';
 
-// Oldest first. Entries without duties (college coursework) aren't stops on the route.
+// Oldest first. Entries without duties (college coursework) are plain stops with nothing to expand.
 const stops: Stop[] = [...career]
   .reverse()
-  .filter((r) => r.duties.length)
   .flatMap(({ sub, certIssuer, ...r }) => {
     const earned = certs.filter((c) => c.issuer === certIssuer).map((c) => c.title);
     const stop: Stop = certIssuer

@@ -67,6 +67,50 @@ export default function Route({ stops }: { stops: Stop[] }) {
         // null = not hydrated yet: CSS decides
         const open = picked[i] ?? (wide === null ? null : wide || !!s.current);
         const shown = open ?? true;
+        const head = (
+          <>
+            <span className={`font-mono text-xs leading-normal tracking-[0.08em] uppercase tabular-nums md:pt-1 ${s.current ? 'text-ink' : 'text-dim'}`}>
+              {s.when}
+            </span>
+            <span>
+              <span className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <span
+                  className={`leading-[1.3] font-medium text-balance text-ink transition-colors duration-150 group-hover:text-signal ${s.sub ? 'text-[1.0625rem] md:text-lg' : 'text-xl md:text-2xl'}`}
+                >
+                  {s.title}
+                </span>
+                {s.tag && (
+                  <span className="rounded-full border border-crimson/50 px-3 py-1 font-mono text-[11px] tracking-[0.08em] text-ink/80 uppercase">
+                    {s.tag}
+                  </span>
+                )}
+              </span>
+              <span className="block text-dim">{s.org}</span>
+            </span>
+          </>
+        );
+        const grid = 'relative grid w-full gap-0.5 py-0.5 pr-7 text-left md:grid-cols-[11rem_1fr] md:items-start md:gap-x-20';
+        // nothing to show (college coursework): a plain stop, not a disclosure
+        if (!s.duties.length && !s.chips && !s.tools)
+          return (
+            <li key={s.title} className="relative pb-8 pl-[30px] last:pb-0 md:pb-10 md:pl-0 md:last:pb-0">
+              <span
+                data-dot
+                aria-hidden
+                className={`absolute top-[0.55rem] left-[5px] size-[11px] -translate-x-1/2 rounded-full border border-dim bg-ground md:left-[13.5rem]`}
+              />
+              {i < stops.length - 1 && (
+                <span
+                  data-seg
+                  aria-hidden
+                  className="absolute top-[calc(0.55rem+11px)] -bottom-[0.55rem] left-[5px] w-px origin-top bg-dim/45 md:left-[13.5rem]"
+                />
+              )}
+              <div data-hop className={grid}>
+                {head}
+              </div>
+            </li>
+          );
         return (
           <li key={s.title} className="relative pb-8 pl-[30px] last:pb-0 md:pb-10 md:pl-0 md:last:pb-0">
             <span
@@ -87,26 +131,9 @@ export default function Route({ stops }: { stops: Stop[] }) {
               aria-expanded={shown}
               aria-controls={id}
               onClick={() => toggle(i, open ?? !!(wide || s.current), id)}
-              className="group relative grid w-full cursor-pointer gap-0.5 py-0.5 pr-7 text-left md:grid-cols-[11rem_1fr] md:items-start md:gap-x-20"
+              className={`group cursor-pointer ${grid}`}
             >
-              <span className={`font-mono text-xs leading-normal tracking-[0.08em] uppercase tabular-nums md:pt-1 ${s.current ? 'text-ink' : 'text-dim'}`}>
-                {s.when}
-              </span>
-              <span>
-                <span className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                  <span
-                    className={`leading-[1.3] font-medium text-balance text-ink transition-colors duration-150 group-hover:text-signal ${s.sub ? 'text-[1.0625rem] md:text-lg' : 'text-xl md:text-2xl'}`}
-                  >
-                    {s.title}
-                  </span>
-                  {s.tag && (
-                    <span className="rounded-full border border-crimson/50 px-3 py-1 font-mono text-[11px] tracking-[0.08em] text-ink/80 uppercase">
-                      {s.tag}
-                    </span>
-                  )}
-                </span>
-                <span className="block text-dim">{s.org}</span>
-              </span>
+              {head}
               <ChevronDown
                 aria-hidden
                 size={14}
