@@ -32,9 +32,9 @@ Source: `inspiration/From Danny.txt`. Claude supervises, agents do the work, Jon
 | 0 | Security headers + `.env*` ignore | done, `3678f9c` |
 | 1 | Footer shown twice on home + home video dimmed on direct load. Cause: Vercel's ISR render of `/` reports path `/index`; fix uses `useSelectedLayoutSegment()` in `SiteFooter`/`Backdrop` | approved |
 | 2 | Calm effects: stop endless blink/pulse, drop desktop blur, Pause stops all loops; tilt only on home doors; typed line → 300ms fade; inner-page video stays | approved |
-| 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | next |
-| 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | |
-| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages | |
+| 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | approved |
+| 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | next |
+| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages; also hover states, reduced motion, 1024–1280 widths, credentials-line contrast over video | |
 | 6 | Finish review, docs, fix `npm run lint` (Next 16 dropped `next lint`), merge with OK, live check | |
 
 Open checks: live footer/header check on prod after merge (preview passed 2026-11-08); phone perf 92 — check video download cost (CP5); `GITHUB_TOKEN` scope (Jon); real-phone test (Jon); 404 page look.

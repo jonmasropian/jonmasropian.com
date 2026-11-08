@@ -1,7 +1,5 @@
 import { getGithubActivity, timeAgo } from '@/lib/github';
 import { links } from '@/data/site';
-import ApiPing from './ApiPing';
-import MotionToggle from '../MotionToggle';
 
 export default async function GithubStrip({ className }: { className?: string }) {
   const a = await getGithubActivity();
@@ -37,21 +35,6 @@ export default async function GithubStrip({ className }: { className?: string })
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
       )}
-      <span className="flex flex-wrap gap-x-6 gap-y-2 lg:ml-auto">
-        <ApiPing />
-        <MotionToggle className="text-dim uppercase hover:text-ink" />
-        <a href={links.resume} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
-          Résumé
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
-        <a href={links.linkedin} target="_blank" rel="noreferrer" className="text-dim hover:text-ink">
-          LinkedIn
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
-        <a href={`mailto:${links.email}`} className="text-dim normal-case hover:text-ink">
-          {links.email}
-        </a>
-      </span>
     </div>
   );
 }

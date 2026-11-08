@@ -193,7 +193,7 @@ A two-sided light palette on near-black: cool blues carry interaction, crimson c
 
 ## Layout
 
-A single 1440px column with 20px gutters on phones and 64px from md (48rem) up. The home route is one viewport on desktop (lg, 64rem+): every element is absolutely placed against the horizon at 59% of the viewport (name bottom at 39%, typed line at 63.5%, doors from 71%, GitHub strip at 3.5% from the bottom, portrait right of center). Below lg it becomes a short stack: name, typed line, portrait, doors in a 2x2 grid, strip.
+A single 1440px column with 20px gutters on phones and 64px from md (48rem) up. The home first screen is one viewport on desktop (lg, 64rem+): every element is absolutely placed against the horizon at 59% of the viewport (name bottom at 39%, typed line plus credentials line at 63%, doors from 72%, GitHub status strip at 3.5% from the bottom, portrait right of center). Below lg it becomes a short stack: name, typed line, credentials line, portrait, doors in a 2x2 grid, strip. Home then scrolls to a "Record and stack" section (three numbers and a grouped stack in a panel, over a ground veil that fades in across the horizon) and the site footer.
 
 Inner pages start below the absolute nav (112px top padding phone, 176px md+), set the display H1, then a grid of glass panels: the first item spans full width as a featured row (image left, text right on lg), the rest sit in two columns on lg with 24px gaps (20px on phones). Section headlines get large air above them (96px phone, 128px md+). Nav and footer share the same column and gutters.
 
@@ -240,7 +240,7 @@ Soft but firm. Panels, doors and the terminal use 18px corners (16px for doors o
 ### Navigation
 - **Desktop:** mono wordmark left (13px, 0.14em, uppercase), text links right in Plex Sans 15px Fog Grey; hover and current page go to Ink with a 1px crimson underline that draws from the left (300ms, expo-out). Contact is the pill.
 - **Mobile:** 44px menu toggle; a full-screen ground-at-95% sheet with blur lists links in display caps (36px) divided by hairlines. Escape closes it and returns focus; the page behind is made inert.
-- **Footer (inner pages):** one mono 12px row in Slate Dim: copyright, email, Pause background, Under the hood, résumé, GitHub, LinkedIn.
+- **Footer (every page, including home):** the only footer-like link block; one mono 12px row in Slate Dim: copyright, email, Pause background, Under the hood, résumé, GitHub, LinkedIn.
 
 ### Door (signature)
 Glass link resting on the horizon: label-bottom layout (title in Ink, one line in Fog Grey), up-right arrow top-right that nudges out on hover. On desktop it is clamp(7rem, 16dvh, 9.5rem) tall with 1.4rem padding and rests at rotateX 10deg inside perspective 500px, so its top edge leans back onto the plane; pointer tilt adds to that rest angle.
@@ -251,7 +251,7 @@ A recorded psql session on the Cyber Lab: 18px panel, ground at 85% (60% plus bl
 ### Accessibility behaviours (part of the system)
 - **Focus:** a global `:focus-visible` ring, 2px Signal Blue, 3px offset, 2px radius, on everything. Glass lights its cursor glow on keyboard focus too.
 - **Reduced motion:** global transitions and animations collapse to 0.01ms; the background video is paused on its poster; the typed line and the terminal render their final state at once; pointer tilt is off.
-- **Pause background:** a "Pause background" / "Play background" toggle (`aria-pressed`) in the home GitHub strip and the inner-page footer stores the visitor's choice in localStorage and pauses the video site-wide (WCAG 2.2.2). It hides itself when the OS already requests reduced motion.
+- **Pause background:** a "Pause background" / "Play background" toggle (`aria-pressed`) in the site footer stores the visitor's choice in localStorage and pauses the video site-wide (WCAG 2.2.2). It hides itself when the OS already requests reduced motion.
 - **Error text** always uses Alert Coral, never raw crimson.
 - **New tabs:** every `target="_blank"` link carries an `sr-only` "(opens in a new tab)" notice. Decorative icons are `aria-hidden`.
 - **Layout stability:** the typed line reserves its final height with an invisible copy, so typing never shifts layout.

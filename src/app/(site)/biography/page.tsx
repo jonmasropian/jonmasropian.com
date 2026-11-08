@@ -98,7 +98,7 @@ export default function Page() {
         ))}
       </ol>
 
-      <h2 className={`mt-24 md:mt-32 ${h2}`}>Certifications</h2>
+      <h2 id="certifications" className={`mt-24 scroll-mt-8 md:mt-32 ${h2}`}>Certifications</h2>
       <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         <div className="md:col-span-2 lg:col-span-3">
           <CertCard cert={featured} featured />

@@ -111,3 +111,17 @@ export const certs: Cert[] = [
   { slug: 'coitb-python', title: 'CoITB Professional Python Developer', issuer: 'CoITB', issued: 'Jul 25, 2026', expires: 'Jul 25, 2029', number: '7248', image: '/certs/coitb-python.webp' },
   { slug: 'era-academy', title: 'Full Stack Bootcamp', issuer: 'Era Academy', issued: 'Completed Jul 2026' },
 ];
+
+// Home, below the first screen. Approved by Jon 2026-11-08; don't add numbers he hasn't given.
+export const stats = [
+  { value: '22 years', label: 'Army IT' },
+  { value: '2,000+', label: 'Soldiers trained' },
+  { value: '6', label: 'Certifications in 2026' },
+];
+
+export const stack = [
+  { group: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML/CSS'] },
+  { group: 'Frameworks', items: ['React', 'Next.js', 'Tailwind CSS', 'Vite'] },
+  { group: 'Data & tools', items: ['MySQL', 'Git/GitHub', 'Vercel', 'Square API'] },
+  { group: 'Networks & security', items: ['TCP/IP', 'VLANs', 'VPN', 'Active Directory', 'STIG compliance'] },
+];
