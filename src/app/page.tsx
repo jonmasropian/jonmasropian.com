@@ -8,7 +8,7 @@ export const revalidate = 600; // GitHub strip refresh
 
 const TAGLINE = '22 years running Army networks. Now I write software and teach MySQL.';
 const credly = certs.find((c) => c.slug === 'secplus')?.badge;
-const credLink = 'block w-fit text-signal underline decoration-signal/40 underline-offset-4 transition-colors hover:text-ink hover:decoration-ink sm:inline';
+const credLink = 'tap block w-fit text-signal underline decoration-signal/40 underline-offset-4 transition-colors hover:text-ink hover:decoration-ink sm:inline';
 
 // Horizon layout: the video's wave sits at 59% of the viewport (see Backdrop). On lg+ every piece is
 // placed against that line; below lg it becomes a short stack.
@@ -21,7 +21,7 @@ export default function HomePage() {
           <span className="block text-dim lg:[mask-image:linear-gradient(#000_74%,rgb(0_0_0/0.35))]">Masropian</span>
         </h1>
 
-        <div className="motion-safe:animate-[fade-in_300ms_ease-out] relative z-10 mt-5 mb-6 lg:absolute lg:mb-0 lg:top-[63%] lg:left-[4.25rem] lg:mt-0">
+        <div className="motion-safe:animate-[fade-in_300ms_ease-out] backing relative z-10 mt-5 mb-6 lg:absolute lg:mb-0 lg:top-[63%] lg:left-[4.25rem] lg:mt-0">
           <p className="max-w-[34ch] text-lg leading-snug font-light text-muted lg:max-w-none lg:text-[clamp(1.125rem,2.4dvh,1.375rem)]">
             {TAGLINE}
           </p>

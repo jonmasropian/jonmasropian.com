@@ -35,7 +35,7 @@ export default function Page() {
               <a
                 href={d.href}
                 {...(d.external && { target: '_blank', rel: 'noreferrer' })}
-                className="mt-1 inline-flex items-center gap-1.5 text-ink transition-colors hover:text-signal"
+                className="tap mt-1 inline-flex items-center gap-1.5 text-ink transition-colors hover:text-signal"
               >
                 {d.value}
                 {d.external && <ArrowUpRight aria-hidden size={15} strokeWidth={1.75} />}

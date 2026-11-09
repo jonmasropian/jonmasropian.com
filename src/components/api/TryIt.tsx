@@ -37,7 +37,7 @@ export default function TryIt({ method, path, body }: { method: 'GET' | 'POST'; 
         type="button"
         onClick={() => !busy && run()}
         aria-disabled={busy}
-        className="inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-3 font-mono text-xs tracking-[0.08em] text-signal uppercase transition-colors hover:border-signal/60 hover:text-ink aria-disabled:cursor-wait"
+        className="tap inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-3 font-mono text-xs tracking-[0.08em] text-signal uppercase transition-colors hover:border-signal/60 hover:text-ink aria-disabled:cursor-wait"
       >
         {busy ? <LoaderCircle aria-hidden size={14} className="animate-spin" /> : <Play aria-hidden size={14} strokeWidth={1.75} />}
         Try it<span className="sr-only">: {method} {path}</span>

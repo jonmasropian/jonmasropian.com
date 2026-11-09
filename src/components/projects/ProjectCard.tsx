@@ -5,7 +5,7 @@ import type { Project } from '@/data/projects';
 // `featured` = full-width row (image left, text right on lg) so one project alone still reads as a page.
 export default function ProjectCard({ project: p, featured }: { project: Project; featured?: boolean }) {
   const link =
-    'inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
+    'tap inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
   return (
     <article
       className={`panel flex flex-col overflow-hidden rounded-[18px] ${featured ? 'lg:flex-row' : ''}`}

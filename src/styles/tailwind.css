@@ -87,6 +87,43 @@
   }
 }
 
+/* Phones: an invisible 44px hit box centred on a small link or button, so the text doesn't move.
+   Don't combine with glass/door (they use ::before); neighbours need 44px pitch or the boxes overlap. */
+@utility tap {
+  @media (width < 48rem) {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: max(100%, 44px);
+      height: max(100%, 44px);
+      translate: -50% -50%;
+    }
+  }
+}
+
+/* Home tagline backing (lg+): a faint band of the ground colour with feathered edges, so the small text keeps
+   4.5:1 over the bright wave. Same colour as the ground and no offset, so it reads as shade, not a glow. */
+@utility backing {
+  @media (width >= 64rem) {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -1.25rem -4rem -1.25rem -2.5rem;
+      z-index: -1;
+      background: rgb(3 3 6 / var(--backing, 0.62)); /* lowest that keeps every frame >= 4.5:1 (CP5 pixel check) */
+      mask:
+        linear-gradient(to right, transparent, #000 2.5rem, #000 calc(100% - 4rem), transparent),
+        linear-gradient(transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
+      mask-composite: intersect;
+      pointer-events: none;
+    }
+  }
+}
+
 /* Home tagline: one fade on load. No fill-mode, so the text ends at its own full opacity. */
 @keyframes fade-in {
   from {

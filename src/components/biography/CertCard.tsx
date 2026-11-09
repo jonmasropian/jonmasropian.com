@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import type { Cert } from '@/data/biography';
 
-const link = 'inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
+const link = 'tap inline-flex items-center gap-1.5 font-mono text-xs tracking-[0.08em] uppercase transition-colors';
 
 // `featured` = full-width row (certificate left, details right on lg), same pattern as ProjectCard.
 export default function CertCard({ cert: c, featured }: { cert: Cert; featured?: boolean }) {
@@ -61,7 +61,7 @@ export default function CertCard({ cert: c, featured }: { cert: Cert; featured?:
         </dl>
 
         {(c.image || c.verify) && (
-          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 pt-1 lg:mt-auto lg:pt-5">
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-7 pt-1 md:gap-y-2 lg:mt-auto lg:pt-5">
             {c.verify && (
               <a href={c.verify.url} target="_blank" rel="noreferrer" className={`${link} text-signal hover:text-ink`}>
                 Verify at CompTIA <ArrowUpRight aria-hidden size={14} strokeWidth={1.75} />

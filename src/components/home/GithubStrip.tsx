@@ -10,7 +10,7 @@ export default async function GithubStrip({ className }: { className?: string })
     <div className={`flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-xs tracking-[0.06em] uppercase ${className ?? ''}`}>
       {a ? (
         <>
-          <a href={links.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-signal hover:text-ink">
+          <a href={links.github} target="_blank" rel="noreferrer" className="tap flex items-center gap-2 text-signal hover:text-ink">
             <span aria-hidden className="size-1.5 rounded-full bg-signal" />
             Live from GitHub
             <span className="sr-only"> (opens in a new tab)</span>
@@ -30,7 +30,7 @@ export default async function GithubStrip({ className }: { className?: string })
           </span>
         </>
       ) : (
-        <a href={links.github} target="_blank" rel="noreferrer" className="text-signal hover:text-ink">
+        <a href={links.github} target="_blank" rel="noreferrer" className="tap text-signal hover:text-ink">
           GitHub · jonmasropian
           <span className="sr-only"> (opens in a new tab)</span>
         </a>

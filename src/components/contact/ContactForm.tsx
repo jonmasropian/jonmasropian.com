@@ -130,7 +130,7 @@ export default function ContactForm() {
       <button
         type="submit"
         aria-disabled={status.kind === 'sending'}
-        className="pill gap-2 aria-disabled:cursor-wait aria-disabled:opacity-70"
+        className="pill tap gap-2 aria-disabled:cursor-wait aria-disabled:opacity-70"
       >
         {status.kind === 'sending' ? (
           <>

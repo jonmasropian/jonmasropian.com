@@ -8,12 +8,12 @@ Last updated 2026-11-06. **The rebuild is finished and live at https://www.jonma
 - Repo: this folder (local folder still named `Masropian-portfolio-template`; GitHub repo is `jonmasropian/jonmasropian.com`, old URL redirects). Work lands on `main`, which auto-deploys on Vercel, so **never push to `main` without Jon's OK** (use a branch for new work). `rebuild/planning` is fully merged.
 - Live: `https://www.jonmasropian.com` (apex `jonmasropian.com` 308-redirects to www; both bought/managed in Vercel). Vercel env: `GITHUB_TOKEN` (read-only, LMS_Backend), `RESEND_API_KEY`. Resend domain `jonmasropian.com` verified; contact mail sends from `portfolio@jonmasropian.com`, reply-to = visitor.
 - Stack: Next.js 16 App Router, Tailwind v4 (tokens in `src/styles/tailwind.css`), React 19, lucide-react, framer-motion (installed, unused so far). All old void/glitch code and 24 unused deps were removed in Stage 1.
-- Routes: `/` home, `/projects`, `/biography`, `/cyber-lab`, `/contact`, `/under-the-hood` under `src/app/(site)/`; API at `src/app/api/github` and `src/app/api/contact`. Design system recorded in `DESIGN.md`.
+- Routes: `/` home, `/projects`, `/biography`, `/cyber-lab`, `/contact`, `/under-the-hood` under `src/app/` (root layout `src/app/layout.tsx`, 404 `src/app/not-found.tsx`); API at `src/app/api/github` and `src/app/api/contact`. Design system recorded in `DESIGN.md`.
 
 | Stage | What shipped | Status |
 |---|---|---|
 | 1 Foundation | Tokens, fonts, nav (`SiteNav.tsx`, mobile full-screen menu), footer (hidden on `/`), 5 routes, persistent video backdrop (`Backdrop.tsx`, dims to 72% on inner pages) | approved, `5482b10` |
-| 2 Home | Horizon layout (`src/app/(site)/page.tsx`): big name, cut-out portrait with edge rim light (`home/Portrait.tsx`), typed line (`home/TypedLine.tsx`), 4 glass doors (`home/Doors.tsx`), live GitHub strip (`home/GithubStrip.tsx` + `src/lib/github.ts`, tests in `src/lib/github.test.ts`) | approved, `b4bf264`, `00e542b` |
+| 2 Home | Horizon layout (`src/app/page.tsx`): big name, cut-out portrait with edge rim light (`home/Portrait.tsx`), typed line (`home/TypedLine.tsx`), 4 glass doors (`home/Doors.tsx`), live GitHub strip (`home/GithubStrip.tsx` + `src/lib/github.ts`, tests in `src/lib/github.test.ts`) | approved, `b4bf264`, `00e542b` |
 | 3 Projects | 3 glass cards (`projects/ProjectCard.tsx`, data in `src/data/projects.ts`): Warriors Blood Coffee (featured, full width), The Bean's Place, Barbershop Cut & Snip; screenshots in `public/projects/`; client-work line + Under-the-hood line under cards | approved, `9f7b639` |
 | 4 Biography | Intro, career timeline, 7 cert cards (`biography/CertCard.tsx`, data `src/data/biography.ts`, images `public/certs/`), Credly link on Security+, résumé button | approved, `f23f2ce` … `60c5bce` |
 | Résumé | One-page single-column résumé, two copies (with phone for applications, no phone for the site) in `inspiration/resume/` + `build-resume.js`; site copy `public/Jon-Masropian-Resume.pdf` | approved, `5e42a50` |
@@ -34,8 +34,8 @@ Source: `inspiration/From Danny.txt`. Claude supervises, agents do the work, Jon
 | 2 | Calm effects: stop endless blink/pulse, drop desktop blur, Pause stops all loops; tilt only on home doors; typed line → 300ms fade; inner-page video stays | approved |
 | 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | approved |
 | 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | approved |
-| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages; also hover states, reduced motion, 1024–1280 widths, credentials-line contrast over video | |
-| 6 | Finish review, docs, fix `npm run lint` (Next 16 dropped `next lint`), merge with OK, live check | |
+| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages; also hover states, reduced motion, 1024–1280 widths, credentials-line contrast over video | approved |
+| 6 | Finish review, docs, fix `npm run lint` (Next 16 dropped `next lint`), merge with OK, live check | next |
 
 Open checks: live footer/header check on prod after merge (preview passed 2026-11-08); phone perf 92 — check video download cost (CP5); `GITHUB_TOKEN` scope (Jon); real-phone test (Jon); 404 page look.
 
@@ -51,7 +51,7 @@ Open checks: live footer/header check on prod after merge (preview passed 2026-1
 ## 3. Decisions locked (don't revisit)
 
 - **Look:** dark sci-fi. Ground `#030306`, navy `#092659`, cobalt `#0252AC`, signal `#5aa0ff` (cobalt lifted for text contrast), crimson `#D31816`, wine `#591E28`, text `#F6F6F6` / `#A6A9AF` / `#8994B4`.
-- **Fonts:** Big Shoulders (display, caps), IBM Plex Sans (body), IBM Plex Mono (labels/data). Via `next/font/google` in `src/app/(site)/layout.tsx`.
+- **Fonts:** Big Shoulders (display, caps), IBM Plex Sans (body), IBM Plex Mono (labels/data). Via `next/font/google` in `src/app/layout.tsx`.
 - **Title:** "Software Developer Apprentice" (ERA Solutions). **Never call Jon an engineer.** Browser title: "Jon Masropian — Software Developer".
 - **Typed line:** "22 years running Army networks. Now I write software and teach MySQL."
 - **No phone number anywhere.** Public contact: jon.masropian@gmail.com, GitHub `github.com/jonmasropian`, LinkedIn `linkedin.com/in/jon-masropian-9607223a7/` (all in `src/data/site.ts`). Jon's other emails (ERA, Vets4Life) stay off the site.

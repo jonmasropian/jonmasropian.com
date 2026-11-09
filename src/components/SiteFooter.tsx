@@ -3,9 +3,9 @@ import { links } from '@/data/site';
 import MotionToggle from './MotionToggle';
 
 export default function SiteFooter() {
-  const item = 'transition-colors hover:text-ink';
+  const item = 'tap transition-colors hover:text-ink';
   return (
-    <footer className="relative mx-auto flex w-full max-w-[1440px] flex-wrap items-center gap-x-6 gap-y-2 px-5 py-6 font-mono text-xs tracking-[0.06em] text-dim md:px-16">
+    <footer className="relative mx-auto flex w-full max-w-[1440px] flex-wrap items-center gap-x-6 gap-y-7 px-5 py-6 font-mono text-xs tracking-[0.06em] text-dim md:gap-y-2 md:px-16">
       <span className="w-full md:mr-auto md:w-auto">© {new Date().getFullYear()} Jon Masropian</span>
       <a className={item} href={`mailto:${links.email}`}>
         {links.email}

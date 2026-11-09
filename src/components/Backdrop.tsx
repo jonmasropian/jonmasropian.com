@@ -14,13 +14,19 @@ export default function Backdrop() {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const sync = () => {
       if (!v) return;
-      if (mq.matches || isPaused()) v.pause();
-      else v.play().catch(() => {}); // autoplay can be refused (low-power mode); the poster stays
+      if (mq.matches || isPaused()) return v.pause();
+      // File picked here, not with <source media>: WebKit sometimes matched it before the viewport meta and gave phones the 1280 clip.
+      if (!v.getAttribute('src')) v.src = matchMedia('(max-width: 768px)').matches ? '/video/horizon-854.mp4' : '/video/horizon-1280.mp4';
+      v.play().catch(() => {}); // autoplay can be refused (low-power mode); the poster stays
     };
-    sync();
+    // First play waits for the page's load event: with preload="none" the clip no longer competes with
+    // fonts, JS and the LCP on phones. The poster is the clip's first frame, so the wait doesn't show.
+    if (document.readyState === 'complete') sync();
+    else window.addEventListener('load', sync, { once: true });
     mq.addEventListener('change', sync);
     window.addEventListener(MOTION_EVENT, sync);
     return () => {
+      window.removeEventListener('load', sync);
       mq.removeEventListener('change', sync);
       window.removeEventListener(MOTION_EVENT, sync);
     };
@@ -36,11 +42,8 @@ export default function Backdrop() {
         muted
         loop
         playsInline
-        preload="auto"
-      >
-        <source src="/video/horizon-854.mp4" type="video/mp4" media="(max-width: 768px)" />
-        <source src="/video/horizon-1280.mp4" type="video/mp4" />
-      </video>
+        preload="none"
+      />
       {/* crimson light from the left (direction contract): ambient across the field, not a halo */}
       <div
         className="absolute inset-0 mix-blend-screen transition-opacity duration-700 ease-out-expo"
