@@ -56,6 +56,11 @@ typography:
     fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.6
+  stat:
+    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontSize: "clamp(2rem, 4vw, 2.75rem)"
+    fontWeight: 400
+    lineHeight: 1
 rounded:
   focus: "2px"
   field: "12px"
@@ -131,7 +136,7 @@ The voice is plain and credible, never theatrical. Jon has rejected boot sequenc
 **Key Characteristics:**
 - Near-black ground lit from two sides (cool right, warm left), never flat.
 - Condensed heavy caps for one heading per page; Plex Sans for reading; Plex Mono for every label and data value.
-- Dark tinted glass with 1px hairline borders and a cursor light that follows the pointer.
+- Dark opaque-tinted glass with 1px hairline borders; only the home doors carry a cursor light and tilt.
 - One gradient-edged pill, reserved for the contact action.
 - One authored motion moment per page (tagline fade, career route drawing in); everything else is quiet state transitions.
 
@@ -141,7 +146,7 @@ A two-sided light palette on near-black: cool blues carry interaction, crimson c
 
 ### Primary
 - **Horizon Cobalt** (cobalt): the cool key light. Text selection background, the cobalt half of the pill's gradient rim, and the pill's glow. Never used as text on ground (fails contrast); use Signal Blue for that.
-- **Signal Blue** (signal): cobalt lifted to pass contrast as text on ground. Links and live actions ("Live site", "Verify", "Replay", "Try it"), the "Live from GitHub" dot, the global focus ring, focused field borders.
+- **Signal Blue** (signal): cobalt lifted to pass contrast as text on ground. Links and live actions ("Live site", "Verify", "Try it"), the "Live from GitHub" dot, the global focus ring, focused field borders.
 
 ### Secondary
 - **Edge Crimson** (crimson): the warm edge light. The input caret, the nav underline, the crimson half of the pill rim, the current-role dot on the career route, and status-tag borders at 50%. Small doses only.
@@ -154,8 +159,8 @@ A two-sided light palette on near-black: cool blues carry interaction, crimson c
 - **Night Ground** (ground): page background, theme color, field fills (at 70-85%), the inner-page veil, the pill's inner fill.
 - **Deep Navy** (navy): the cool fill of glass (navy-to-ground gradient), scrollbar thumb, the certificate placeholder gradient.
 - **Paper Ink** (ink): headings, titles, values in data rows, hover target for every quiet link.
-- **Fog Grey** (muted): body copy, the typed line, inactive nav links.
-- **Slate Dim** (dim): labels, metadata, prompts, the second line of the hero name, stack chips, resting field borders at 65% (clears 3:1 non-text contrast).
+- **Fog Grey** (muted): body copy, the home tagline, inactive nav links.
+- **Slate Dim** (dim): labels, metadata, the second line of the hero name, stack chips, resting field borders at 65% (clears 3:1 non-text contrast).
 - **Hairline** (hairline): 1px borders on glass, panels, chips, dividers; rises to dim at 50% on hover/focus.
 
 ### Named Rules
@@ -176,10 +181,11 @@ A two-sided light palette on near-black: cool blues carry interaction, crimson c
 - **Display** (800, clamp(4rem, 12vw, 10rem), 0.85, uppercase): the single page H1 on every inner page.
 - **Headline** (800, clamp(2.75rem, 6vw, 4.5rem), 0.9, uppercase): section headings within a page (e.g. Career, Certifications).
 - **Title** (Plex Sans 500, 1.5rem; 1.875-2.25rem on featured cards): card and door titles, in Paper Ink.
-- **Lead** (Plex Sans 300, 1.125-1.375rem, snug): the typed line under the hero name.
+- **Lead** (Plex Sans 300, 1.125-1.375rem, snug): the tagline under the hero name (one 300ms fade on load).
 - **Body** (Plex Sans 400, 1rem, 1.625): summaries and prose, max 60ch, in Fog Grey.
 - **Label** (Plex Mono 400, 0.75rem, 0.06-0.08em tracking, uppercase): form labels, action links, footer, GitHub strip, career dates. Status tags drop to 11px.
 - **Data** (Plex Mono 400, 12-13px, 1.6, tabular-nums): API responses, certificate details.
+- **Stat** (Plex Mono 400, clamp(2rem, 4vw, 2.75rem), leading 1, tabular-nums, Ink): the numbers in the home record.
 
 ### Named Rules
 **The One Loud Line Rule.** Big Shoulders appears once per page as the H1, plus section headlines. It is never used for body, labels, or buttons (the mobile menu items and the certificate issuer placeholder are the only other display uses).
@@ -188,22 +194,22 @@ A two-sided light palette on near-black: cool blues carry interaction, crimson c
 
 ## Layout
 
-A single 1440px column with 20px gutters on phones and 64px from md (48rem) up. The home first screen is one viewport on desktop (lg, 64rem+): every element is absolutely placed against the horizon at 59% of the viewport (name bottom at 39%, typed line plus credentials line at 63%, doors from 72%, GitHub status strip at 3.5% from the bottom, portrait right of center). Below lg it becomes a short stack: name, typed line, credentials line, portrait, doors in a 2x2 grid, strip. Home then scrolls to a "Record and stack" section (three numbers and a grouped stack in a panel, over a ground veil that fades in across the horizon) and the site footer.
+A single 1440px column with 20px gutters on phones and 64px from md (48rem) up. The home first screen is one viewport on desktop (lg, 64rem+): every element is absolutely placed against the horizon at 59% of the viewport (name bottom at 39%, tagline plus credentials line at 63%, doors from 72%, GitHub status strip at 3.5% from the bottom, portrait right of center). On lg+ the tagline and credentials line sit on a faint backing band (`backing` utility: ground at 62% with feathered edges, no offset) so they keep 4.5:1 over the bright wave. Below lg it becomes a short stack: name, tagline, credentials line, portrait, doors in a 2x2 grid, strip. Home then scrolls to a "Record and stack" section (three numbers and a grouped stack in a panel, over a ground veil that fades in across the horizon) and the site footer.
 
-Inner pages start below the absolute nav (112px top padding phone, 176px md+), set the display H1, then a grid of glass panels: the first item spans full width as a featured row (image left, text right on lg), the rest sit in two columns on lg with 24px gaps (20px on phones). Section headlines get large air above them (96px phone, 128px md+). Nav and footer share the same column and gutters.
+Inner pages start below the absolute nav (112px top padding phone, 176px md+), set the display H1, then a grid of glass panels: the first item spans full width as a featured row (image left, text right on lg), the rest sit in two columns on lg with 24px gaps (20px on phones). Section headlines get large air above them (96px phone, 128px md+). Nav and footer share the same column and gutters. Biography holds the career route (see Components). The 404 page (`not-found.tsx`) uses the same inner-page shell: display H1 "Page not found", one Fog Grey line, and an outline "Back to home" button.
 
 ## Elevation & Depth
 
-Depth is light and translucency, not stacked shadows. The page has three planes: the video horizon (fixed, behind), tinted glass on top of it, and content inside the glass. Glass casts one soft, long, low drop shadow so it sits on the plane; nothing else is lifted. On desktop glass gets a 12px backdrop blur; on phones it stays opaque-tinted instead, because blur over a playing video is too costly there.
+Depth is light and translucency, not stacked shadows. The page has three planes: the video horizon (fixed, behind), tinted glass on top of it, and content inside the glass. Glass casts one soft, long, low drop shadow so it sits on the plane; nothing else is lifted. Glass is opaque-tinted at every width, with no backdrop blur; blur over a playing video was too heavy. The only blur on the site is the mobile menu sheet (`SiteNav.tsx`).
 
 ### Shadow Vocabulary
 - **Glass drop** (`box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.9)`): every glass panel and door.
 - **Pill glow** (`box-shadow: 0 6px 24px -10px rgb(2 82 172 / 0.7)`, hover `0 10px 32px -10px rgb(2 82 172 / 0.95)`): the contact pill only, offset downward like light on the floor.
 
 ### Named Rules
-**The Desktop-Only Blur Rule.** Backdrop blur is enabled from 64rem up only. Below that, raise the glass tint instead.
+**The No-Blur Glass Rule.** Glass never uses backdrop blur; raise the tint instead. The mobile menu sheet is the one exception.
 
-**The Cursor Light Rule.** Glass responds to the pointer with light, not lift: a 220px radial Signal Blue wash inside and a matching glow masked to the 1px edge, plus a tilt of at most 8 degrees. Mouse pointers only, and never under reduced motion.
+**The Cursor Light Rule.** Only the home doors (`glass` utility) respond to the pointer: a 220px radial Signal Blue wash inside and a matching glow masked to the 1px edge, plus a tilt of at most 8 degrees. Mouse pointers only, and never under reduced motion. Project and certificate cards are static `panel` glass: no tilt, no cursor light, just a 150ms edge brightening on hover or when a link inside has focus.
 
 ## Shapes
 
@@ -222,7 +228,7 @@ Soft but firm. Panels and doors use 18px corners (16px for doors on phones); fie
 
 ### Cards / Containers
 - **Corner Style:** 18px.
-- **Background:** navy-to-ground glass gradient (160deg; 72%/82% on phones, 45%/30% plus 12px blur on desktop).
+- **Background:** navy-to-ground glass gradient (160deg, navy 72% to ground 82%) at every width, no blur.
 - **Shadow Strategy:** Glass drop (see Elevation).
 - **Border:** 1px hairline, dim at 50% on hover or when a child has focus.
 - **Internal Padding:** 20px phone, 24-28px desktop, 40px on featured rows.
@@ -235,7 +241,8 @@ Soft but firm. Panels and doors use 18px corners (16px for doors on phones); fie
 ### Navigation
 - **Desktop:** mono wordmark left (13px, 0.14em, uppercase), text links right in Plex Sans 15px Fog Grey; hover and current page go to Ink with a 1px crimson underline that draws from the left (300ms, expo-out). Contact is the pill.
 - **Mobile:** 44px menu toggle; a full-screen ground-at-95% sheet with blur lists links in display caps (36px) divided by hairlines. Escape closes it and returns focus; the page behind is made inert.
-- **Footer (every page, including home):** the only footer-like link block; one mono 12px row in Slate Dim: copyright, email, Pause background, Under the hood, résumé, GitHub, LinkedIn.
+- **Footer (every page, including home):** the site-wide link block (the Contact page's side list is the one deliberate exception); one mono 12px row in Slate Dim: copyright, email, Pause background, résumé, GitHub, LinkedIn. Under the hood lives in the nav and on the home door, not here.
+- **Tap targets:** the `tap` utility gives small text links and buttons an invisible 44px hit box on phones (below 48rem) without moving the text.
 
 ### Door (signature)
 Glass link resting on the horizon: label-bottom layout (title in Ink, one line in Fog Grey), up-right arrow top-right that nudges out on hover. On desktop it is clamp(7rem, 16dvh, 9.5rem) tall with 1.4rem padding and rests at rotateX 10deg inside perspective 500px, so its top edge leans back onto the plane; pointer tilt adds to that rest angle.
@@ -244,12 +251,11 @@ Glass link resting on the horizon: label-bottom layout (title in Ink, one line i
 Biography's career as a vertical route, oldest first: a 1px rail (Slate Dim at 45%) with an 11px hollow dot per stop (7px for the Drill Sergeant sub-stop) and a crimson dot for the current role. On desktop the date sits in an 11rem column left of the rail at 13.5rem. Each stop is a disclosure button (`aria-expanded`/`aria-controls`) with a chevron; duties start open on desktop and, on phones, only the current role is open (CSS decides until hydration, so nothing shifts). It draws in once when first scrolled into view: each rail segment scales 0 to 1 over 350ms, one every 300ms, and each stop rises 6px from 0.15 opacity over 250ms (expo-out, about 1.7s total). Reduced motion and Pause background show the final state.
 
 ### Accessibility behaviours (part of the system)
-- **Focus:** a global `:focus-visible` ring, 2px Signal Blue, 3px offset, 2px radius, on everything. Glass lights its cursor glow on keyboard focus too.
+- **Focus:** a global `:focus-visible` ring, 2px Signal Blue, 3px offset, 2px radius, on everything. Home doors light their cursor glow on keyboard focus too.
 - **Reduced motion:** global transitions and animations collapse to 0.01ms; the background video is paused on its poster; the tagline and the career route render their final state at once; pointer tilt is off.
-- **Pause background:** a "Pause background" / "Play background" toggle (`aria-pressed`) in the site footer stores the visitor's choice in localStorage and pauses the video site-wide (WCAG 2.2.2). It hides itself when the OS already requests reduced motion.
+- **Pause background:** a "Pause background" / "Play background" toggle (`aria-pressed`) in the site footer stores the visitor's choice in localStorage and pauses the video and every CSS loop site-wide (WCAG 2.2.2); an inline script in the root layout sets `html[data-paused]` before first paint, so a paused visitor never sees the tagline fade. It hides itself when the OS already requests reduced motion.
 - **Error text** always uses Alert Coral, never raw crimson.
 - **New tabs:** every `target="_blank"` link carries an `sr-only` "(opens in a new tab)" notice. Decorative icons are `aria-hidden`.
-- **Layout stability:** the typed line reserves its final height with an invisible copy, so typing never shifts layout.
 - A skip link to `#main` appears on focus.
 
 ## Do's and Don'ts
@@ -258,7 +264,7 @@ Biography's career as a vertical route, oldest first: a 1px rail (Slate Dim at 4
 - **Do** place home elements against the horizon at 59% of the viewport, and keep the video top-anchored at 118% height so the wave stays there.
 - **Do** use Signal Blue for links and actions and Alert Coral for errors (The Lifted Text Rule).
 - **Do** keep warm light on the left and cool light on the right (The Two-Sided Light Rule).
-- **Do** build every container as glass with a 1px hairline and 18px corners; enable blur only from 64rem.
+- **Do** build every container as opaque-tinted glass with a 1px hairline and 18px corners; no backdrop blur.
 - **Do** set labels, metadata and data in Plex Mono uppercase at 12px with 0.06-0.08em tracking.
 - **Do** give every motion a reduced-motion final state and respect the Pause background choice.
 - **Do** use expo-out easing (cubic-bezier(0.16, 1, 0.3, 1)) for state transitions: 150ms to follow, 300ms to settle, 500ms for tilt, 700ms for backdrop changes between routes.
@@ -269,7 +275,7 @@ Biography's career as a vertical route, oldest first: a 1px rail (Slate Dim at 4
 - **Don't** use zero-offset colored glow halos; light is offset downward or masked to an edge.
 - **Don't** use glitch, scanline, corruption or boot-sequence effects, or hacker-theatre copy.
 - **Don't** set cobalt or crimson as body or link text on ground.
-- **Don't** tilt glass more than 8 degrees, or tilt for touch pointers.
+- **Don't** tilt anything but the home doors, tilt more than 8 degrees, or tilt for touch pointers.
 
 ## Raster Provenance
 

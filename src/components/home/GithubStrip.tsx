@@ -16,7 +16,7 @@ export default async function GithubStrip({ className }: { className?: string })
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <span className={label}>
-            Last {a.unit === 'commits' ? 'commit' : 'push'} <span className={value}>{timeAgo(a.lastAt, Date.now())}</span>
+            Last {a.unit === 'commits' ? 'commit' : 'push'} <span className={value}>{timeAgo(a.lastAt)}</span>
           </span>
           <span className={`${label} hidden sm:inline`}>
             Repo <span className={`${value} normal-case`}>{a.repo}</span>

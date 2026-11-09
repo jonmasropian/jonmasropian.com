@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { links } from '@/data/site';
 import MotionToggle from './MotionToggle';
 
@@ -10,10 +9,7 @@ export default function SiteFooter() {
       <a className={item} href={`mailto:${links.email}`}>
         {links.email}
       </a>
-      <MotionToggle className={`${item}`} />
-      <Link className={item} href="/under-the-hood">
-        Under the hood
-      </Link>
+      <MotionToggle className={item} />
       <a className={item} href={links.resume} target="_blank" rel="noreferrer">
         Résumé (PDF)
         <span className="sr-only"> (opens in a new tab)</span>

@@ -5,6 +5,7 @@ import { Big_Shoulders, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 import Backdrop from '@/components/Backdrop';
 import SiteNav from '@/components/SiteNav';
 import SiteFooter from '@/components/SiteFooter';
+import { MOTION_KEY } from '@/lib/motion';
 
 const display = Big_Shoulders({
   subsets: ['latin'],
@@ -33,7 +34,16 @@ export const viewport: Viewport = { themeColor: '#030306' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    // suppressHydrationWarning: the head script below adds data-paused before React hydrates
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Set the visitor's Pause choice before first paint so CSS loops never start */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('${MOTION_KEY}')==='1')document.documentElement.setAttribute('data-paused','')}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-dvh flex-col overflow-x-hidden">
         <a
           href="#main"

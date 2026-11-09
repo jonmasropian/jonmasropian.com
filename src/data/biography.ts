@@ -68,13 +68,13 @@ export const career: Role[] = [
     sub: {
       when: '2016 – 2019',
       title: 'Drill Sergeant / Technical Training Lead',
-      duties: ['Trained more than 2,000 trainees.'],
+      duties: ['Trained more than 2,000 trainees into Soldiers.'],
     },
   },
   {
-    when: 'Coursework',
+    when: 'College',
     title: 'Central Texas College',
-    org: 'College coursework',
+    org: 'Coursework',
     duties: [],
   },
 ];
@@ -94,8 +94,8 @@ export type Cert = {
 export const certs: Cert[] = [
   {
     slug: 'secplus',
-    title: 'CompTIA Security+ ce',
-    issuer: 'CompTIA · SY0-701',
+    title: 'CompTIA Security+',
+    issuer: 'CompTIA · SY0-701 · ce',
     issued: 'Jan 19, 2026',
     expires: 'Jan 19, 2029',
     image: '/certs/secplus.webp',

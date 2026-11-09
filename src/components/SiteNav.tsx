@@ -10,8 +10,13 @@ export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
+  const [path, setPath] = useState(pathname);
 
-  useEffect(() => setOpen(false), [pathname]);
+  // close the menu on navigation (state adjusted during render, not in an effect)
+  if (path !== pathname) {
+    setPath(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
     if (!open) return;

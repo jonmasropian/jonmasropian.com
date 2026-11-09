@@ -72,7 +72,7 @@ export function summarizeEvents(events: GithubEvent[], now: number): GithubActiv
   };
 }
 
-export function timeAgo(iso: string, now: number): string {
+export function timeAgo(iso: string, now = Date.now()): string {
   const mins = Math.max(0, Math.round((now - Date.parse(iso)) / 60_000));
   if (mins < 60) return `${mins} min ago`;
   const hrs = Math.round(mins / 60);

@@ -66,7 +66,6 @@ export default function Route({ stops }: { stops: Stop[] }) {
         const id = `${uid}-${i}`;
         // null = not hydrated yet: CSS decides
         const open = picked[i] ?? (wide === null ? null : wide || !!s.current);
-        const shown = open ?? true;
         const head = (
           <>
             <span className={`font-mono text-xs leading-normal tracking-[0.08em] uppercase tabular-nums md:pt-1 ${s.current ? 'text-ink' : 'text-dim'}`}>
@@ -128,7 +127,8 @@ export default function Route({ stops }: { stops: Stop[] }) {
             <button
               type="button"
               data-hop
-              aria-expanded={shown}
+              // unset until hydrated: CSS may hide the panel on phones, so any value could be wrong
+              aria-expanded={open ?? undefined}
               aria-controls={id}
               onClick={() => toggle(i, open ?? !!(wide || s.current), id)}
               className={`group cursor-pointer ${grid}`}

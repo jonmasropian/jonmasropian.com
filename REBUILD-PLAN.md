@@ -1,14 +1,14 @@
 # Portfolio: session brief
 
 **New session: read this whole file first, then `PRODUCT.md`. Don't re-ask Jon anything answered here.**
-Last updated 2026-11-06. **The rebuild is finished and live at https://www.jonmasropian.com** (repo renamed to `github.com/jonmasropian/jonmasropian.com`). All 6 stages approved. **Next phase: Jon's teaching projects with live databases (section 4). Not started; Jon will say when.** Jon is retired from the Army; site and résumé say so once, plainly.
+Last updated 2026-11-08 (refresh CP6 in progress on `refresh/danny`, see 1b). **The rebuild is finished and live at https://www.jonmasropian.com** (repo renamed to `github.com/jonmasropian/jonmasropian.com`). All 6 stages approved. **Next phase: Jon's teaching projects with live databases (section 4). Not started; Jon will say when.** Jon is retired from the Army; site and résumé say so once, plainly.
 
 ## 1. Where things stand
 
 - Repo: this folder (local folder still named `Masropian-portfolio-template`; GitHub repo is `jonmasropian/jonmasropian.com`, old URL redirects). Work lands on `main`, which auto-deploys on Vercel, so **never push to `main` without Jon's OK** (use a branch for new work). `rebuild/planning` is fully merged.
 - Live: `https://www.jonmasropian.com` (apex `jonmasropian.com` 308-redirects to www; both bought/managed in Vercel). Vercel env: `GITHUB_TOKEN` (read-only, LMS_Backend), `RESEND_API_KEY`. Resend domain `jonmasropian.com` verified; contact mail sends from `portfolio@jonmasropian.com`, reply-to = visitor.
 - Stack: Next.js 16 App Router, Tailwind v4 (tokens in `src/styles/tailwind.css`), React 19, lucide-react, framer-motion (installed, unused so far). All old void/glitch code and 24 unused deps were removed in Stage 1.
-- Routes: `/` home, `/projects`, `/biography`, `/cyber-lab`, `/contact`, `/under-the-hood` under `src/app/` (root layout `src/app/layout.tsx`, 404 `src/app/not-found.tsx`); API at `src/app/api/github` and `src/app/api/contact`. Design system recorded in `DESIGN.md`.
+- Routes (after the refresh): `/` home, `/projects`, `/biography`, `/under-the-hood`, `/contact` + styled 404 (`src/app/not-found.tsx`), all directly under `src/app/` with the root layout at `src/app/layout.tsx` (no `(site)` group). Cyber Lab is gone: `/cyber-lab` 308-redirects to `/biography` (`next.config.js`). API at `src/app/api/github` and `src/app/api/contact`. Design system recorded in `DESIGN.md`. The stage table below is the original rebuild; the refresh changed several pieces (see 1b).
 
 | Stage | What shipped | Status |
 |---|---|---|
@@ -21,7 +21,7 @@ Last updated 2026-11-06. **The rebuild is finished and live at https://www.jonma
 | 6 Finish | Impeccable finish review fixes (rim light traced from the matte, outside the outline; left crimson light; name masked into wave; doors lean 6deg/600px; CLS 0.186→0.001), a11y pass (Pause background toggle, terminal plays once + Replay, form focus/labels, menu inert), `DESIGN.md` | approved, `ad03a1e` |
 | Launch | Merged to main, domain connected, Resend domain sender (`a971391`), README + repo rename (`84e648b`), local tool folders untracked (`7006d05`) | live |
 
-Shared pieces to reuse: `.glass` utility (tilt + inner light + edge light, keyboard focus too) and `src/lib/tilt.ts` (`tilt` / `resetTilt` pointer handlers). The `.pill` utility is the one gradient-edged button (used for Contact in the nav).
+Shared pieces to reuse: `glass` utility (tilt + inner light + edge light; home doors only since CP2) with `src/lib/tilt.ts`, `panel` (static glass for project/cert cards), `tap` (44px phone hit box), `backing` (home tagline band). The `.pill` utility is the one gradient-edged button (used for Contact in the nav).
 
 ## 1b. Refresh from Danny's review (branch `refresh/danny`, started 2026-11-08)
 
@@ -30,12 +30,12 @@ Source: `inspiration/From Danny.txt`. Claude supervises, agents do the work, Jon
 | CP | Scope | Status |
 |---|---|---|
 | 0 | Security headers + `.env*` ignore | done, `3678f9c` |
-| 1 | Footer shown twice on home + home video dimmed on direct load. Cause: Vercel's ISR render of `/` reports path `/index`; fix uses `useSelectedLayoutSegment()` in `SiteFooter`/`Backdrop` | approved |
-| 2 | Calm effects: stop endless blink/pulse, drop desktop blur, Pause stops all loops; tilt only on home doors; typed line → 300ms fade; inner-page video stays | approved |
-| 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | approved |
-| 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | approved |
-| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages; also hover states, reduced motion, 1024–1280 widths, credentials-line contrast over video | approved |
-| 6 | Finish review, docs, fix `npm run lint` (Next 16 dropped `next lint`), merge with OK, live check | next |
+| 1 | Footer shown twice on home + home video dimmed on direct load. Cause: Vercel's ISR render of `/` reports path `/index`; fix uses `useSelectedLayoutSegment()` in `SiteFooter`/`Backdrop` | approved, `8ae6235` |
+| 2 | Calm effects: stop endless blink/pulse, drop desktop blur, Pause stops all loops; tilt only on home doors; typed line → 300ms fade; inner-page video stays | approved, `ff4602f` |
+| 3 | Home proof: cert row (Credly links), clearance, grouped stack, 2–3 real numbers (content plan to Jon first) | approved, `471134c` |
+| 4 | Cyber Lab → "traceroute" career path (Motion `m` + LazyMotion), artifacts first | approved, `9213718`, `73fd36a` |
+| 5 | A11y + mobile: 44px targets, Contact duplicate links, Playwright + axe all pages; also hover states, reduced motion, 1024–1280 widths, credentials-line contrast over video | approved, `3339770` |
+| 6 | Finish: footer drops Under the hood; copy (College/Coursework stop, "CompTIA Security+" card with "CompTIA · SY0-701 · ce", Drill Sergeant line); Route omits `aria-expanded` until hydrated; Pause applied before paint (inline head script in `layout.tsx`); `npm run lint` = `eslint .` with flat `eslint.config.mjs` + eslint-config-next 16; DESIGN/README/this file synced; new `.github/home.png`. Then merge with OK + live check | in progress, uncommitted |
 
 Open checks: live footer/header check on prod after merge (preview passed 2026-11-08); phone perf 92 — check video download cost (CP5); `GITHUB_TOKEN` scope (Jon); real-phone test (Jon); 404 page look.
 
@@ -56,7 +56,7 @@ Open checks: live footer/header check on prod after merge (preview passed 2026-1
 - **Typed line:** "22 years running Army networks. Now I write software and teach MySQL."
 - **No phone number anywhere.** Public contact: jon.masropian@gmail.com, GitHub `github.com/jonmasropian`, LinkedIn `linkedin.com/in/jon-masropian-9607223a7/` (all in `src/data/site.ts`). Jon's other emails (ERA, Vets4Life) stay off the site.
 - **No AI-slop copy.** Plain, factual, first person.
-- **Craft rules hit so far:** no eyebrow/kicker labels above headings (status tags go beside titles), no section numbers, no zero-offset colored glow halos, blur only on desktop (too heavy over video on phones).
+- **Craft rules hit so far:** no eyebrow/kicker labels above headings (status tags go beside titles), no section numbers, no zero-offset colored glow halos, no backdrop blur on glass at any width since CP2 (only the mobile menu sheet blurs).
 - **GitHub strip:** shows private repo `jonmasropian/LMS_Backend` (time, commit count, name only; never contents or messages). Needs `GITHUB_TOKEN`. Jon already created a fine-grained read-only token for that repo and added it in Vercel as a Secret (Production + Preview). Without the token it falls back to public push events.
 - **Projects shown:** only the three above. Company work (an LMS and a VA document app built at ERA) gets one vague line, no names or features. Teaching-class repos stay off until their MySQL/MongoDB databases are hosted (advice given: use MongoDB Atlas M0 / Aiven free MySQL, not the company Azure account; low priority).
 - **Warriors Blood Coffee** is a team repo (`joshuasilvazero-source/warriors-blood-coffee-silva`), live at `warriors-blood-coffee.vercel.app`, **not complete**. Jon's parts: lower home-page sections, About Us layout (incomplete), most of the Square checkout.
@@ -98,6 +98,7 @@ Likely shape (to confirm): create the hosted DBs → load schema + sample data �
 
 ## 6. Gotchas (save yourself the rediscovery)
 
+- **Home detection:** Vercel's ISR renders `/` as `/index`, so `usePathname()` is wrong there. Use `useSelectedLayoutSegment()` (null on home).
 - **Local preview:** `npx kill-port 3123; GITHUB_TOKEN=$(gh auth token) npm run build && GITHUB_TOKEN=$(gh auth token) npx next start -p 3123`. The gh token is only for the local process; never write it to a file. `.env.local` is git-ignored and Claude can't read it.
 - **Replaced an image in `public/` but the page shows the old one?** Delete `.next/cache/images` and restart. Playwright's browser also caches, so use a fresh context.
 - **Playwright:** `waitUntil: 'networkidle'` never settles (the video streams); use `'load'`. Hover tests are flaky because Jon's real mouse is over the headed window; force hover states by adding a class plus CSS vars instead. Screenshots must go under `.playwright-mcp/` (git-ignored).
